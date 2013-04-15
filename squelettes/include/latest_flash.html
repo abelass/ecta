@@ -1,0 +1,8 @@
+		<BOUCLE_ne(RUBRIQUES){id_rubrique=15}>
+        <BOUCLE_news(ARTICLES){id_rubrique}{par date}{inverse}{0,5}>
+        <div class="article_short" id="article#ID_ARTICLE">
+            [<h4><a href="#URL_ARTICLE" target="_blank">(#TITRE|supprimer_numero)</a></h4>]
+            [(#CHAPO|sinon{#INTRODUCTION}|paragrapher)]
+        </div>
+        </BOUCLE_news>
+        </BOUCLE_ne>

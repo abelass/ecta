@@ -1,0 +1,6 @@
+#CACHE{0}
+[(#ENV{page}|=={profil_membre}|non)
+#FORMULAIRE_MINI_PROFIL{#SESSION{id_auteur},'readonly'}
+][(#ENV{page}|=={profil_membre}|oui)
+#FORMULAIRE_MINI_PROFIL{#SESSION{id_auteur}}
+]

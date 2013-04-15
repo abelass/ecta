@@ -1,0 +1,13 @@
+<ul id="tools">
+	<li class="item1" id="tool-search">#FORMULAIRE_RECHERCHE</li>
+    <li class="item1" id="tool-member">
+  <?php if ( $GLOBALS['auteur_session']) { ?>
+  <a href="?action=logout&logout=public&url=[(#SELF|urlencode)]">Sign out</a>
+  <?php } else { ?>
+  <a href="?page=member_login&return=#SELF" rel="facebox">Member area</a>
+  <?php } ?>
+    </li>
+    <li class="item1" id="tool-groups"><BOUCLE_groups(RUBRIQUES){id_rubrique=436}>[<a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>]</BOUCLE_groups></li>
+    <BOUCLE_join(RUBRIQUES){id_rubrique=28}>[<li class="item1" id="tool-join"><a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a></li>]</BOUCLE_join>
+    
+</ul>

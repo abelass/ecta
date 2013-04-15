@@ -1,0 +1,52 @@
+#CACHE{0}<?xml version="1.0" [ encoding="(#CHARSET)"]?>[(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]
+<channel[ xml:lang="(#LANG)"]>
+	<title>[(#NOM_SITE_SPIP|textebrut|texte_backend)]</title>
+	<link>#URL_SITE_SPIP/</link>
+	<description>Member information for sharing</description>
+	<language>#LANG</language>
+	<generator>SPIP - www.spip.net</generator>
+<?php
+	spip_query("SET NAMES 'utf8'");
+	function showme_member($member){
+	
+		mysql_connect("mysql.ecta.name", "ecta", "mzt63ryx") or die("Could not connect: " . mysql_error());
+		mysql_select_db("ectaname");
+		
+		$result = mysql_query("SELECT membernumber,title,name,surname,email,addr1,addr2,addr3,addr4,addr5,country,tel1,tel2,tel3,fax1,fax2,company,vat_number FROM ecta_members WHERE membernumber = '$member'");
+		
+		while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
+printf("
+	<member id=%s>\n
+	    	<title>%s</title>
+	    	<firstname>%s</firstname>
+	    	<surname>%s</surname>
+	    	<email>%s</email>
+	    	<address>
+	    		<line1>%s</line1>
+	    		<line2>%s</line2>
+	    		<line3>%s</line3>
+	    		<line4>%s</line4>
+	    		<city>%s</city>
+	    		<country>%s</country>
+	    	</address>
+	    	<phone>
+	    		<tel1>%s</tel1>
+	    		<tel2>%s</tel2>
+	    		<tel3>%s</tel3>
+	    		<fax1>%s</fax1>
+	    		<fax2>%s</fax2>
+	    	</phone>
+	    	<company>%s</company>
+	    	<tva>%s</tva>
+	 </member>", $row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[12], $row[13], $row[14], $row[15], $row[16], $row[17]);   
+		    
+		}
+
+		mysql_free_result($result);
+	
+	}
+	$themember = htmlspecialchars($_GET["member"]);
+	showme_member($themember);
+	
+?>	 
+</channel>

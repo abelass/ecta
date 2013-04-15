@@ -1,0 +1,16 @@
+		<BOUCLE_afficheArt(ARTICLES){id_article}>
+        	<div class="article" id="article#ID_ARTICLE">
+			<h3>[(#TITRE|supprimer_numero)]</h3>
+			[<h4>(#SOUSTITRE)</h4>]
+			[(#CHAPO||inserer_attribut{'class','chapeau'})]
+			[(#TEXTE|paragrapher)]
+            
+            [<!--login-ok-->(#SESSION{id_auteur}|oui)
+            <INCLURE{fond=include/documents}{id_article}>
+            ]
+            [(#SESSION{id_auteur}|non)
+            <div class="reponse_formulaire_erreur"><p>You need to be logged to download the documents</p></div>
+        	]
+            </div>
+            
+		</BOUCLE_afficheArt>

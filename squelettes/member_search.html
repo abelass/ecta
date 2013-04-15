@@ -1,0 +1,150 @@
+<BOUCLE_rub(RUBRIQUES){id_rubrique=201}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<INCLURE{fond=include/head}{id_rubrique}>
+</head>
+<body>
+<div id="wrap">
+
+<INCLURE{fond=include/header}{id_rubrique}>
+
+<div id="principal">
+	<div id="contenu">
+    
+    
+    	[<!--login-ok-->
+        (#SESSION{id_auteur}|oui)[(#GET{id_rub}|=={'15'}|non)<INCLURE{fond=include/article-contenu}{id_rubrique}{ajax}{env}>]
+        [(#GET{id_rub}|=={'15'}|oui)<INCLURE{fond=include/member_search}{ajax}{env}>]
+         ]
+        
+        [(#SESSION{id_auteur}|non)
+        <INCLURE{fond=include/notlogged}{ajax}{env}>
+        ]
+        
+        <h3>Membership directory</h3>
+        <!-- liste de resultats -->
+        <h4>Results</h4>
+        <table class="spip" width="100%" id="member_results">
+          <thead>
+            <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Country</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr class="row_even">
+          <td><a href=""><img src="squelettes/images/avatar_defaut_mini.jpg" alt"Olivier Vrins" class="avatar"></a></td>
+          <td><a href=""><strong>Mr. Olivier Vrins</strong></a></td>
+          <td>Altius</td>
+          <td>Belgium</td>
+          </tr>
+          
+          <tr class="row_odd">
+           <td><a href=""><img src="squelettes/images/avatar_defaut_mini.jpg" alt"Carsten C. Albrecht" class="avatar"></a></td>
+           <td><a href=""><strong>Dr. Carsten C. Albrecht</strong></a></td>
+          <td>FPS - Fritze Paul Seelig</td>
+          <td>Germany</td>
+          </tr>
+          </tbody>
+        </table>
+        
+        
+        <!-- fiche embre -->
+		<div class="box1" id="member_file">
+          <h4>Mr. Olivier Vrins</h4>
+          <div class="col2" id="member_avatar">
+          <img src="squelettes/images/avatar_defaut.jpg" alt"Olivier Vrins" class="avatar">
+          </div>
+          <div class="col1" id="member_data">
+          <table class="spip" width="100%" id="member_file">
+          <tbody>
+          <tr>
+          <td class="label">Membership n&deg;</td>
+          <td>2496</td>
+          </tr>
+          
+          <tr>
+          <td class="label">Company name</td>
+          <td>Altius</td>
+          </tr>
+          
+          <tr>
+          <td class="label">Company name</td>
+          <td>Altius</td>
+          </tr>
+          
+          <tr>
+          <td class="label">Address</td>
+          <td>Avenue du Port 86 C B.414<br />Tour & Taxis Building<br />BE - 1000 Brussels</td>
+          </tr>
+          
+          <tr>
+          <td class="label">Country</td>
+          <td>Belgium</td>
+          </tr>
+          
+          <tr>
+          <td class="label">Phone number</td>
+          <td>32/2-426 14 14</td>
+          </tr>
+          
+          <tr>
+          <td class="label">Telefax</td>
+          <td>32/2-426 20 30</td>
+          </tr>
+          
+          <tr>
+          <td class="label">E-mail</td>
+          <td><a href="mailto:olivier.vrins@altius.com">olivier.vrins@altius.com</a></td>
+          </tr>
+          
+          </tbody>
+        </table>
+        </div>
+        <div class="clear"> </div>
+		</div>
+        <p><a href="" class="button"><span>Back to the results</span></a></p>
+        
+        <!-- moteur de recherche -->
+		<div class="box1">
+          <h4>Please enter your search criteria below: </h4>
+          <form id="member_search">
+          	<fieldset>
+            	<label for="fname">First name : </label>
+                <input id="fname" type="text" class="text" />
+                <label for="lname">Last name : </label>
+                <input id="lname" type="text" class="text" />
+                <label for="company">Company : </label>
+                <select id="company" class="select">
+                	<option value="">All companies</option>
+                	<option value="">FPS - Fritze Paul Seelig</option>
+                    <option value="">Altius</option>
+                </select>
+                <label for="country">Country :</label>
+                <select id="country" class="select">
+                	<option value="">All countries</option>
+                	<option value="">Belgium</option>
+                    <option value="">Germany</option>
+                </select>
+             </fieldset>
+             <fieldset>
+                <input type="submit" class="submit" value="search" />
+            </fieldset>
+          </form>
+        </div>
+        
+	</div>
+    <div id="sidebar">
+    	<INCLURE{fond=include/sidebar}{id_rubrique}>
+    </div>
+</div>
+
+<INCLURE{fond=include/footer}>
+
+</div>
+
+</body>
+</html>
+</BOUCLE_rub>

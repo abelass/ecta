@@ -1,0 +1,88 @@
+#CACHE{0}
+
+#SET{a_jour,true}
+#SET{fee_year,#DATE|annee}
+#SET{fee,0}
+#SET{annee,#DATE|annee}
+#SET{date_limite,4-15 00:00:00}
+
+<BOUCLE_membre(ectamembersdev:ECTA_MEMBERS){id_auteur=#SESSION{id_auteur}}{tout}>
+
+	<BOUCLE_fee(ectamembersdev:ECTA_MEMBERSHIP_TYPE){membership_fee=#MEMBERSHIP_FEE}>
+		#SET{amount,#AMOUNT}
+	</BOUCLE_fee>
+	
+	[(#GET{annee}|=={#MEMBERSHIP_YEAR}|oui)
+		[(#DATE|mois|>{9}|oui)You can will your subscription fee for [(#DATE|annee|plus{1})].<br />
+		#SET{a_jour,false}
+		#SET{fee_year,#DATE|annee|plus{1}}
+		]
+	]
+	[(#GET{annee}|>{#MEMBERSHIP_YEAR}|oui)
+		#SET{a_jour,false}
+		[(#DATE|strtotime|<={[(#VAL{[#GET{annee}-(#GET{date_limite})]}|strtotime)]}|oui)
+				You will pay your subscription fee for [(#DATE|annee)]<br />
+				
+		]
+		[(#DATE|strtotime|>{[(#VAL{[#GET{annee}-(#GET{date_limite})]}|strtotime)]}|oui)
+			You will pay your subscription fee for [(#DATE|annee)]. A tax of 10% will be added - reason : delay on subscription fee<br />
+			#SET{amount,#EVAL{1.1 * #GET{amount}}}
+			
+		]
+	]
+	<BOUCLE_doit_payer(CONDITION){si #GET{a_jour}|=={false}}>
+	
+	
+Your subscription (status : #MEMBERSHIP_FEE, amount : [(#GET{amount}|DIV{100})] &euro;) can either be paid by Credit Card (VISA or MASTERCARD) on-line :<br />
+<br />
+<form method="post" action="https://secure.ogone.com/ncol/prod/orderstandard.asp" id="form1" name="form1">
+	<input type="hidden" name="PSPID" value="ecta1" />
+	<input type="hidden" name="orderID" value="FEE_#SESSION{id_auteur}_[(#DATE||affdate{ymd-Hi})]" />
+	<input type="hidden" name="currency" value="EUR" />
+	<input type="hidden" name="language" value="en_US" />
+	<input type="hidden" name="SHASign" value="[(#SESSION{id_auteur}|shasign{#GET{amount}})]" />
+	<input type="hidden" name="amount" value="#GET{amount}" />
+	<input type="hidden" NAME="com" value="Registration Fees" />
+	<input type="hidden" name="select_currency" value="EUR" />
+	<input type="hidden" name="select_language" value="#LANG" />
+	<input type="hidden" name="accepturl" value="http://www.ecta.org/members/?retour_ogone=success" />
+	<input type="hidden" name="cancelurl" value="http://www.ecta.org/members/?retour_ogone=cancel" />
+	<input type="hidden" name="declineurl" value="http://www.ecta.org/members/?retour_ogone=decline" />
+	<input type="hidden" NAME="TITLE" value="Registration Fees for #GET{fee_year}" />
+	<input name="homeurl" type="hidden" value="#URL_SITE_SPIP" />
+	<input name="catalogurl" type="hidden" value="#URL_SITE_SPIP" />
+	<input type="hidden" name="CN" value="#SESSION{nom}" />
+	<input type="hidden" name="EMAIL" value="#SESSION{email}" />
+	
+    <p><input type="submit" value="Pay Online Now" id="submit2" name="submit2" class="submit" /></p>
+</form>
+
+
+<br />
+It can also be paid by bank transfer. Our bank details are as follows:<br />
+&nbsp;<br />
+<table cellspacing="0" cellpadding="10" border="1" style="border-color:#eee">
+  <tbody>
+    <tr>
+      <td width="50%" valign="top">
+        ING Bank<br />
+        Branch Galeries St. Hubert<br />
+        Rue March&eacute; aux Herbes 90<br />
+        B &#x96; 1000 Brussels<br />
+        Belgium </td>
+      <td width="50%" valign="top">
+        International Bank Account No. (IBAN) : <br />
+        BE 87 3630 1053 9694<br />
+        Bank account number: 363-0105396-94<br />
+        SWIFT address : BBRUBEBB </td>
+    </tr>
+  </tbody>
+</table>
+&nbsp;<br />
+If you pay by bank transfer, would you kindly ensure that your name and membership number are quoted as a reference to enable us to identify your payment.
+	
+	</BOUCLE_doit_payer>
+	Your membership is up-to-date
+	<//B_doit_payer>
+	
+</BOUCLE_membre>

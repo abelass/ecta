@@ -1,0 +1,80 @@
+<BOUCLE_rub(RUBRIQUES){id_rubrique}>
+<BOUCLE_testSiArticles(ARTICLES){id_rubrique} {0,1}> </BOUCLE_testSiArticles>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<INCLURE{fond=include/head}{id_rubrique}>
+</head>
+<body>
+<div id="wrap">
+
+<INCLURE{fond=include/header}{id_rubrique}>
+<div id="principal">
+	<div id="contenu">
+		<INCLURE{fond=include/path}{id_rubrique}>
+        
+        [<!--ogone-ok-->(#ENV{retour_ogone}|=={success}|oui)
+        <div class="reponse_formulaire_ok">
+        <p><strong>PAYMENT SUCCESSFUL !</strong></p>
+        <p>Your subscription fee is now up to date</p>
+     	</div>
+        ]
+        
+        [<!--ogone-decline-->(#ENV{retour_ogone}|=={decline}|oui)
+        <div class="reponse_formulaire_erreur">
+        <p><strong>PAYMENT DECLINED  !</strong></p>
+        <p>Your subscription fee has not been paid. Please try again</p>
+    	</div>
+        ]
+        [<!--ogone-cancel-->(#ENV{retour_ogone}|=={cancel}|oui)
+        <div class="reponse_formulaire_erreur">
+        <p><strong>PAYMENT CANCELLLED !</strong></p>
+        <p>Your subscription fee has not been paid. Please try again</p>
+    	</div>
+        ]
+        
+        [<!--login-ok-->
+		(#SESSION{id_auteur}|oui)
+		
+			<?php
+			$member = sql_fetsel('*','ecta_members','id_auteur=#SESSION{id_auteur}','','','','','ectamembersdev');
+			
+			if (!$member) {
+			?>
+				<INCLURE{fond=include/notlogged}{ajax}{env}>
+			<?php
+			} else {
+			?>
+				
+        <h3>Member area</h3>
+        <h4>Latest Flash</h4>
+        <div class="box1">
+        <INCLURE{fond=include/latest_flash}>
+        </div>
+
+			<?php
+			}
+			?>
+
+        ]
+        [(#SESSION{id_auteur}|non)
+        <INCLURE{fond=include/notlogged}{ajax}{env}>
+        ]
+	</div>
+    <div id="sidebar">
+    	<INCLURE{fond=include/sidebar}{id_rubrique}>
+    </div>
+</div>
+
+<INCLURE{fond=include/footer}>
+
+</div>
+
+</body>
+</html>
+</B_testSiArticles>
+<BOUCLE_premierFils(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre}{0,1}>
+<INCLURE{fond=rubrique}{id_rubrique} {flash=no} />
+</BOUCLE_premierFils>
+<//B_testSiArticles>
+</BOUCLE_rub>

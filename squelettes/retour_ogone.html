@@ -1,0 +1,13 @@
+<?php
+#CACHE{0}
+spip_log('Retour Ogone');
+spip_log($_REQUEST);
+
+#SET{fee_year,#DATE|annee}
+[(#DATE|mois|>{9}|oui)
+#SET{fee_year,#DATE|annee|plus{1}}
+]
+
+traite_retour_ogone(#GET{fee_year},'#DATE');
+
+?>

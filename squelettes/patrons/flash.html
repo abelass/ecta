@@ -1,0 +1,128 @@
+#CACHE{1}
+[(#REM)
+<!--
+* Squelette pour spip-listes    
+-->
+]
+<style>
+.ExternalClass{
+	padding:0;
+	background-color:#eeede6;
+}
+A{
+	color:#6C4585;
+	text-decoration:none;
+}
+A:HOVER{
+	color:#6C4585;
+	text-decoration:underline;
+}
+P{
+	font-size: 12px;
+	margin:0 0 15px 0;
+}
+#newsletter-content H4{
+	font-size:1.2em;
+	line-height:1.2em;
+	color: #FFF;
+	font-weight:bold;
+	margin-bottom:5px;
+	background-color:#58741F;
+	padding:4px;
+}
+#newsletter-content A{
+	font-weight:bold;
+	text-decoration:underline
+}
+#newsletter-content A:hover{
+	text-decoration:none
+}
+.spip_documents_left { 
+	float: left; 
+	border:1px #4b7785 solid;
+	padding:2px;
+	margin:0 10px 5px 0;
+}
+.spip_documents_left IMG{
+	border:none;
+}
+.spip_documents_right { 
+	float: right; 
+	margin-left: 15px; 
+	margin-bottom: 5px;
+	border:1px #4b7785 solid;
+	padding:2px;
+}
+.spip_documents_right IMG{ 
+	border:none;
+}
+</style>
+
+<BOUCLE_art(ARTICLES){id_rubrique=15}{par date}{inverse}{0,1}>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#CCCCCC">
+  <tr>
+    <td align="center" valign="top">
+      <table width="662" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="150"><a href="#URL_SITE_SPIP"><img src="#URL_SITE_SPIP/squelettes/images/flash_logo.gif" width="150" height="62" alt="#NOM_SITE_SPIP" border="0" /></a></td>
+            <td align="right" valign="bottom">[<font style="font-size: 12px; line-height: 10px; text-align:right" color="#6C4586" face="Lucida Sans Unicode, Lucida Grande, sans-serif" size="1"><strong>#TITRE | (#DATE||affdate)</strong></font>]</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="143"><img src="#URL_SITE_SPIP/squelettes/images/flash_header.jpg" width="662" height="143" /></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td background="#URL_SITE_SPIP/squelettes/images/flash_left.gif" width="7">&nbsp;</td>
+            <td width="10">&nbsp;</td>
+            <td align="left" valign="top" id="newsletter-content">
+            <p>&nbsp;</p>
+            <p> Dear _AUTEUR_NOM_,</p>
+            <font style="font-size: 12px;" face="Lucida Sans Unicode, Lucida Grande, sans-serif" size="1">
+            
+            [(#DESCRIPTIF)]
+            <h2 style="color:#58731F;font-size:16px;margin-top:0;">Table of Contents</h2>
+            <div style="background-color:#F0F0F0;padding:10px;margin:0 0 8px 0">
+            [(#TEXTE|abs_url)]
+            </div>
+            <p>Kind regards,</p>
+            <p>Flash Editorial Team</p><!--<p> Anne-Laure Covin,<br/>Legal Co-ordinator</p>-->
+            </font>
+            </td>
+            <td width="10">&nbsp;</td>
+            <td width="175" align="left" valign="top">
+            <p>&nbsp;</p>
+            <font style="font-size: 12px;" face="Lucida Sans Unicode, Lucida Grande, sans-serif" size="1">
+            <a href="#URL_SITE_SPIP/spip.php?article#ID_ARTICLE"><img src="#URL_SITE_SPIP/squelettes/images/flash_button.gif" width="175" height="29" alt="view the flash" border="0"></a>
+            <p>View directly</p>
+            <ul>
+        	[(#FLASH1|abs_url|?{<li><a href="#URL_SITE_SPIP/spip.php?article#ID_ARTICLE#flash_zone1" style="color:#6C4586"><strong>Law</strong></a></li>})]
+        	[(#FLASH_2|abs_url|?{<li><a href="#URL_SITE_SPIP/spip.php?article#ID_ARTICLE#flash_zone2" style="color:#6C4586"><strong>Office Practice</strong></a></li>})]
+        	[(#FLASH_3|abs_url|?{<li><a href="#URL_SITE_SPIP/spip.php?article#ID_ARTICLE#flash_zone3" style="color:#6C4586"><strong>Case Law</strong></a></li>})]
+        	[(#FLASH_4|abs_url|?{<li><a href="#URL_SITE_SPIP/spip.php?article#ID_ARTICLE#flash_zone4" style="color:#6C4586"><strong>ECTA News</strong></a></li>})]
+        	</ul>
+            
+            </font>
+            
+            </td>
+            <td width="10">&nbsp;</td>
+            <td background="#URL_SITE_SPIP/squelettes/images/flash_right.gif" width="5">&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td><img src="#URL_SITE_SPIP/squelettes/images/flash_footer.jpg" width="662" height="50" /></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</BOUCLE_art>
+

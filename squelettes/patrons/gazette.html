@@ -1,0 +1,144 @@
+#CACHE{1}
+[(#REM)
+<!--
+* Squelette pour spip-listes    
+* article=2.html (CP-20080502 paladin@quesaco.org)
+
+Exemple pour envoyer un article précis. Ici, id_article 2
+
+// $LastChangedRevision: 20283 $
+// $LastChangedBy: paladin@quesaco.org $
+// $LastChangedDate: 2008-05-02 17:38:09 +0200 (ven, 02 mai 2008) $
+*
+* Precautions:                             
+* - ne pas envoyer des gabarits de plus de 10Ko
+* - ne pas placer de balises html <html><body> ni de fermeture </body></html>
+* ils seront ajoutes automatiquement a l'envoi du mail 
+* - mettre les style  CSS directement dans les balises pour etre sur qu'ils seront interpretes (meme par les webmails)
+* - les urls et liens images seront automatiquement converties en absolues
+*  ex. rubrique5.html -> http://www.monsite.org/rubrique5.html
+*
+-->
+]
+<style>
+.ExternalClass{
+	padding:0;
+	background-color:#eeede6;
+}
+A{
+	color:#6C4585;
+	text-decoration:none;
+}
+A:HOVER{
+	color:#6C4585;
+	text-decoration:underline;
+}
+P{
+	font-size: 12px;
+	margin:0 0 15px 0;
+}
+#newsletter-content H4{
+	font-size:1.2em;
+	line-height:1.2em;
+	color: #FFF;
+	font-weight:bold;
+	margin-bottom:5px;
+	background-color:#58741F;
+	padding:4px;
+}
+#newsletter-content A{
+	font-weight:bold;
+	text-decoration:underline
+}
+#newsletter-content A:hover{
+	text-decoration:none
+}
+.spip_documents_left { 
+	float: left; 
+	border:1px #4b7785 solid;
+	padding:2px;
+	margin:0 10px 5px 0;
+}
+.spip_documents_left IMG{
+	border:none;
+}
+.spip_documents_right { 
+	float: right; 
+	margin-left: 15px; 
+	margin-bottom: 5px;
+	border:1px #4b7785 solid;
+	padding:2px;
+}
+.spip_documents_right IMG{ 
+	border:none;
+}
+</style>
+
+<BOUCLE_art(ARTICLES){id_rubrique=185}{par date}{inverse}{0,1}>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#CCCCCC">
+  <tr>
+    <td align="center" valign="top">
+      <table width="662" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="150"><a href="#URL_SITE_SPIP"><img src="#URL_SITE_SPIP/squelettes/images/flash_logo.gif" width="150" height="62" alt="#NOM_SITE_SPIP" border="0" /></a></td>
+            <td align="right" valign="bottom">[<font style="font-size: 12px; line-height: 10px; text-align:right" color="#6C4586" face="Lucida Sans Unicode, Lucida Grande, sans-serif" size="1"><strong>#TITRE | (#DATE||affdate)</strong></font>]</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="143"><img src="#URL_SITE_SPIP/squelettes/images/flash_header3.jpg" width="662" height="143" /></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td background="#URL_SITE_SPIP/squelettes/images/flash_left.gif" width="7">&nbsp;</td>
+            <td width="10">&nbsp;</td>
+            <td align="left" valign="top" id="newsletter-content">
+            <p>&nbsp;</p>
+            
+            
+            <font style="font-size: 12px;" face="Lucida Sans Unicode, Lucida Grande, sans-serif" size="1">
+            <p>Dear _AUTEUR_NOM_,</p>
+            <p>We are pleased to provide you with the fourth electronic Gazette, the content of which is the following:</p>
+            
+            [(#CHAPO|abs_url)]
+            
+			<p><em>Please note that the views expressed in the articles are those of the author(s) and do not necessarily represent the views of, and should not be attributed to ECTA.</em></p>
+			
+			<p><strong>We thank all the authors for their contributions. We also take this opportunity to especially thank the editors Claire Lazenby and Sandrine Peters, Members of the ECTA Publications Committee for their marvellous work in reviewing the articles.</strong></p>
+			
+			<p>The Publications Committee intends to have a special publication for ECTA on the occasion of the 20th anniversary of the CTM Regulation in 2014 (previously Council Regulation (EC) No 40/94, now (EC) No 207/2009). Should you be interested in contributing in respect of any subject in relation to this special anniversary or have any ideas in relation to presentation/kind of the publication or interesting contributions you would like to see, please contact the Publications Committee as soon as possible by sending an e-mail to <a href="mailto:grabienski@jonas-lawyers.co">grabienski@jonas-lawyers.com</a> (new Chair of the Publications Committee) and copied to <a href="mailto:mca@curellsunol.es">mca@curellsunol.es</a> (Vice Chair of the Publications Committee).<br />
+			We wish you pleasant reading.</p>
+			
+			<p>Kind regards,</p>
+			
+			<p>Katja Grabienski<br />
+			Chair of the ECTA Publications Committee</p>
+
+            </font>
+            
+            </td>
+           <td width="10">&nbsp;</td>
+            <td width="175" align="left" valign="top">
+            <p>&nbsp;</p>
+            <a href="#URL_SITE_SPIP/spip.php?article#ID_ARTICLE"><img src="#URL_SITE_SPIP/squelettes/images/gazette_button.gif" width="175" height="29" alt="view the gazette" border="0"></a>
+            </td>
+            <td width="10">&nbsp;</td>
+            <td background="#URL_SITE_SPIP/squelettes/images/flash_right.gif" width="5">&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td><img src="#URL_SITE_SPIP/squelettes/images/flash_footer.jpg" width="662" height="50" /></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</BOUCLE_art>
+

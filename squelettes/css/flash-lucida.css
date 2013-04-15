@@ -1,0 +1,178 @@
+/* 
+***************************************************************
+*                 SQUELETTES EXIBIT POUR ECTA                 *
+*                                                             *
+*       Copyright 2009 Benoît Vrins {benoit@exibit.be}        *
+***************************************************************
+*/
+* {
+margin: 0;
+padding:0;
+}
+
+BODY, html{
+	font-size:62.5%;
+}
+body {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:1.2em;
+	color: #000000;
+	line-height: 1.3em;
+	margin: 0;
+	padding:0;
+	background-color:#CCC;
+}
+A{
+	color:#6C4585;
+	text-decoration:none;
+}
+A:HOVER{
+	text-decoration:underline;
+}
+H1{
+	display:block;
+	position:absolute;
+	left:0;
+	top:0;
+	background:transparent url('../images/flash_logo.gif') no-repeat top left;
+	width:150px;
+	height:62px;
+}
+H1 A{
+	display:block;
+	width:150px;
+	height:62px;
+	text-indent:-999em;
+	overflow:hidden;
+}
+H2{
+	display:block;
+	position:absolute;
+	right:10px;
+	top:45px;
+	font-size:1em;
+	color:#6C4586;
+}
+
+H3{
+	font-size:1.4em;
+	color:#333333;
+	text-transform:uppercase;
+	color:#58741F;
+	margin: 10px 0 20px 0;
+}
+
+H4{
+	font-size:1.2em;
+	line-height:1.2em;
+	color: #FFF;
+	font-weight:bold;
+	margin-bottom:5px;
+	background-color:#58741F;
+	padding:4px;
+}
+H5{
+	font-size:1.1em;
+	color: #000000;
+	font-weight:bold;
+}
+P{
+	font-size:1em;
+	margin:5px 0 10px 0;
+	line-height:1.3em;
+}
+HR{
+	height:1px;
+	border-top:#CCCCCC solid 1px;
+	border-bottom:none;
+	border-left:none;
+	border-right:none;
+	margin:5px 0 5px 0;
+	clear:both;
+}
+SMALL{
+	font-size:0.8em;
+}
+UL, OL{
+	margin:10px 0 10px 20px;
+	font-size:1.1em;
+}
+UL UL, OL OL,
+UL UL UL, OL OL OL{
+	font-size:1em;
+}
+IMG{
+	border:none;
+}
+BLOCKQUOTE{
+	padding-left:50px;
+	font-style:italic;
+}
+
+FORM,FIELDSET{
+	margin:0;
+	border:none;
+}
+LEGEND{
+	display:none;
+}
+LABEL{
+	font-size:1.1em;
+	margin:5px 0 10px 0;
+	line-height:1.4em;
+	font-weight:bold;
+}
+/* */
+#principal:after,#tools:after{ content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+/*-------------------------------container-------------------------------------*/
+#wrap{
+	position:relative;
+	margin:0 auto;
+	width:662px;
+}
+#header{
+	margin:0 auto;
+	width:662px;
+	height:205px;
+	position:relative;
+	background:transparent url('../images/flash_header.jpg') no-repeat left 62px;
+}
+#article_pdf{
+	display:block;
+	position:absolute;
+	top:0;
+	right:0;
+}
+#principal{
+	margin:0 auto;
+	width:622px;
+	position:relative;
+	background:transparent url('../images/flash_bg.jpg') repeat-y left top;
+	padding:20px;
+}
+#principal A{
+	font-weight:bold;
+	text-decoration:underline
+}
+#principal A:hover{
+	text-decoration:none
+}
+#footer{
+	margin:0 auto;
+	width:662px;
+	height:50px;
+	position:relative;
+	background:transparent url('../images/flash_footer.jpg') no-repeat left top;
+}
+#flash_zone0,#flash_zone1,#flash_zone2,#flash_zone3{
+	border-bottom:#999 2px solid;
+	padding-bottom:20px;
+	margin-bottom:20px;
+	position:relative;
+}
+#flash_zone1,#flash_zone2,#flash_zone3,#flash_zone4{
+	background-color:#F0F0F0;
+	padding:10px;
+}
+#flash_zone3 p.support{text-align:right;display:block;position:absolute;right:10px;top:0;}
+#flash_zone3 p.support span{background:transparent url('../images/logo_darts.gif') no-repeat left top;text-align:left;text-indent:-9999em;display:inline-block;margin:0 5px 0 5px;width:70px;height:35px;}

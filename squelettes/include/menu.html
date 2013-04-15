@@ -1,0 +1,9 @@
+
+<div id="menu">
+<ul>
+<BOUCLE_rubriques(RUBRIQUES){racine}{id_rubrique!=27}{id_rubrique!=436}{par num titre}>
+	<li class="item1[(#EXPOSER|_down)] <BOUCLE_test(RUBRIQUES){id_parent}{0,1}{id_rubrique !IN 17,201,428}>ssmenu</BOUCLE_test>" id="item#ID_RUBRIQUE"><a href="#URL_RUBRIQUE"><span>[(#TITRE|supprimer_numero)]</span></a>
+	<B_oncles><ul id="ssmenu-#ID_RUBRIQUE"><BOUCLE_oncles(RUBRIQUES){id_parent}{par num titre}{id_rubrique !IN 17,201,428}><li class="ssitem1[(#EXPOSER|_down)]" id="item#ID_RUBRIQUE"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li></BOUCLE_oncles>
+</ul></B_oncles></li></BOUCLE_rubriques>
+</ul>
+</div>

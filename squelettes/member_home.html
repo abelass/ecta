@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<INCLURE{fond=include/head}{id_rubrique=4}>
+</head>
+<body>
+<div id="wrap">
+
+<INCLURE{fond=include/header}{id_rubrique=4}>
+
+<div id="principal">
+	<div id="contenu">
+		[<!--login-ok-->
+		(#SESSION{id_auteur}|oui)
+        <h3>Member area</h3>
+        <h4>Latest Flash</h4>
+        <div class="box1">
+        <INCLURE{fond=include/latest_flash}>
+        </div>
+        ]
+        [(#SESSION{id_auteur}|non)
+        <INCLURE{fond=include/notlogged}{ajax}{env}>
+        ]
+        
+	</div>
+    <div id="sidebar">
+    	<INCLURE{fond=include/sidebar}{id_rubrique=4}>
+    </div>
+</div>
+
+<INCLURE{fond=include/footer}>
+
+</div>
+
+</body>
+</html>

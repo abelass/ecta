@@ -1,0 +1,9 @@
+<BOUCLE_art(ARTICLES){id_rubrique}{par date}{inverse}>
+<div class="article_short" id="article#ID_ARTICLE">
+<h3>#TITRE</h3>
+<BOUCLE_listdoc(DOCUMENTS){id_article}>[(#FICHIER|image_masque{masque.png}|image_gamma{-25}|inserer_attribut{"class","onglet1"}|inserer_attribut{"alt","photo "#ID_DOCUMENT})]</BOUCLE_listdoc>
+[(#CHAPO|sinon{#INTRODUCTION}||inserer_attribut{'class','chapeau'})]
+<span class="details">[(#DATE|affdate)] | <a href="#URL_ARTICLE"><:lire_plus:></a></span>
+</div>
+</BOUCLE_art>
+

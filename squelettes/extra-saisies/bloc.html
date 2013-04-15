@@ -1,0 +1,9 @@
+<li class="editer_texte[ (#ENV{obligatoire_extra})][ (#ENV{erreur_extra}|oui)erreur]">
+	<fieldset>
+        <label for="#ENV{champ_extra}">#ENV{label_extra}</label>
+                [<span class='erreur_message'>(#ENV**{erreur_extra})</span>]
+                [<p class="explication">(#ENV{precisions_extra})</p>]
+                [(#ENV**{config}|table_valeur{afficher_barre}|?{#VAL{#ENV{champ_extra}}|barre_typo{#LANGUE}})]
+                <textarea type='text' class='text' name='#ENV{champ_extra}' id='#ENV{champ_extra}' cols='200' rows='80' >#ENV{valeur_extra}</textarea>
+				</fieldset>         
+</li>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<INCLURE{fond=include/head}>
+</head>
+<body>
+
+<div id="wrap">
+
+<INCLURE{fond=include/header}>
+
+<div id="principal">
+	<div id="contenu" >
+		<div id="chemin"><:vous_etes_ici:> : <a href="#"><:plan:></a></div>
+		<h3><:plan:></h3>
+		<!-- Plan du site -->
+		<BOUCLE_secteurs(RUBRIQUES) {racine} {par titre}>
+			<h4><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h4>
+			<!-- Articles et sous-rubriques -->
+			<B_articles_racine>
+			<ul>
+				<BOUCLE_articles_racine(ARTICLES) {id_rubrique} {par titre}>
+				<li><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></li>
+				</BOUCLE_articles_racine>
+			</ul>
+			</B_articles_racine>
+
+			<B_rubriques>
+				<ul>
+					<BOUCLE_rubriques(RUBRIQUES) {id_parent} {par titre}{id_rubrique!=47}>
+
+					<li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>
+						<BOUCLE_sous_rubriques(BOUCLE_rubriques)></BOUCLE_sous_rubriques>
+					</li>
+					</BOUCLE_rubriques>
+				</ul>
+</B_rubriques>
+		<hr />
+		</BOUCLE_secteurs>
+
+	</div>
+    <div id="sidebar">
+    	<INCLURE{fond=include/sidebar}{id_rubrique}>
+    </div>
+</div>
+<INCLURE{fond=include/footer}>
+
+</div>
+
+</body>
+</html>

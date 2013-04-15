@@ -1,0 +1,119 @@
+#CACHE{1}
+[(#REM)
+<!--
+* Squelette pour spip-listes    
+* article=2.html (CP-20080502 paladin@quesaco.org)
+
+Exemple pour envoyer un article précis. Ici, id_article 2
+
+// $LastChangedRevision: 20283 $
+// $LastChangedBy: paladin@quesaco.org $
+// $LastChangedDate: 2008-05-02 17:38:09 +0200 (ven, 02 mai 2008) $
+*
+* Precautions:                             
+* - ne pas envoyer des gabarits de plus de 10Ko
+* - ne pas placer de balises html <html><body> ni de fermeture </body></html>
+* ils seront ajoutes automatiquement a l'envoi du mail 
+* - mettre les style  CSS directement dans les balises pour etre sur qu'ils seront interpretes (meme par les webmails)
+* - les urls et liens images seront automatiquement converties en absolues
+*  ex. rubrique5.html -> http://www.monsite.org/rubrique5.html
+*
+-->
+]
+
+<style>
+.ExternalClass{
+	padding:0;
+	background-color:#eeede6;
+}
+A{
+	color:#6C4585;
+	text-decoration:none;
+}
+A:HOVER{
+	color:#6C4585;
+	text-decoration:underline;
+}
+P{
+	font-size: 12px;
+	margin:0 0 15px 0;
+}
+#newsletter-content H4{
+	font-size:1.2em;
+	line-height:1.2em;
+	color: #FFF;
+	font-weight:bold;
+	margin-bottom:5px;
+	background-color:#58741F;
+	padding:4px;
+}
+#newsletter-content A{
+	font-weight:bold;
+	text-decoration:underline
+}
+#newsletter-content A:hover{
+	text-decoration:none
+}
+.spip_documents_left { 
+	float: left; 
+	border:1px #4b7785 solid;
+	padding:2px;
+	margin:0 10px 5px 0;
+}
+.spip_documents_left IMG{
+	border:none;
+}
+.spip_documents_right { 
+	float: right; 
+	margin-left: 15px; 
+	margin-bottom: 5px;
+	border:1px #4b7785 solid;
+	padding:2px;
+}
+.spip_documents_right IMG{ 
+	border:none;
+}
+</style>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#CCCCCC">
+  <tr>
+    <td align="center" valign="top">
+      <table width="662" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td bgcolor="#FFFFFF" valign="top" align="left"><a href="http://conference.ecta.org/"><img src="#URL_SITE_SPIP/squelettes/images/conference-2011.jpg" width="662" height="135" border="0" /></a></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td background="#URL_SITE_SPIP/squelettes/images/flash_left.gif" width="7">&nbsp;</td>
+            <td width="10">&nbsp;</td>
+            <td align="left" valign="top" id="newsletter-content">
+            <p>&nbsp;</p>
+            <BOUCLE_art(ARTICLES){id_rubrique=203}{par date}{inverse}>
+            
+            <font style="font-size: 12px;" face="Lucida Sans Unicode, Lucida Grande, sans-serif" size="1">
+            <p>Dear _AUTEUR_NOM_,</p>
+            [(#CHAPO|liens_absolus)]
+            [(#TEXTE*|replace{@,_AROB_}|cs_traitements{TEXTE,articles}|replace{_AROB_,@}|liens_absolus)]
+            <p>ECTA Conference Registration Office</p>
+            </font>
+            </BOUCLE_art>
+            </td>
+            <td width="10">&nbsp;</td>
+            <td background="#URL_SITE_SPIP/squelettes/images/flash_right.gif" width="5">&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td><img src="#URL_SITE_SPIP/squelettes/images/flash_footer.jpg" width="662" height="50" /></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+

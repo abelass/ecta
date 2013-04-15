@@ -1,0 +1,54 @@
+<BOUCLE_out(ARTICLES){id_article}>
+<BOUCLE_gen(RUBRIQUES){id_rubrique}{id_mot==2}>
+	<!-- contenu court avec date -->
+	<BOUCLE_afficheDesc(ARTICLES){id_article}{par date} {inverse}>
+    	<div class="article_date">
+		<h3>[(#TITRE|supprimer_numero)]</h3>
+		[<h4>(#SOUSTITRE)</h4>]
+		[(#TEXTE|paragrapher)]
+		<span class="details">[<span class="day">(#DATE|jour)</span>] [<span class="month">(#DATE|nom_mois)</span>] [<span class="year">(#DATE|annee)</span>]</span>
+        </div>
+	</BOUCLE_afficheDesc>
+	</BOUCLE_gen>
+	<BOUCLE_gen2(RUBRIQUES){id_rubrique}{id_mot==1}>
+		<!-- contenu court sans date -->
+		<BOUCLE_afficheDesc2(ARTICLES){id_article}{par num titre}>
+        <div class="article">
+		<h3>[(#TITRE|supprimer_numero)]</h3>
+        [<h4>(#SOUSTITRE)</h4>]
+		[(#TEXTE|paragrapher)]
+        </div>
+		</BOUCLE_afficheDesc2>
+	</BOUCLE_gen2>
+    <!-- galerie photo -->
+		<BOUCLE_galerie(RUBRIQUES){id_rubrique}{id_mot==3}>
+		<BOUCLE_afficheGal(ARTICLES){id_article}{par num titre}>
+        <div class="article_galerie" id="article#ID_ARTICLE">
+			<h3>[(#TITRE|supprimer_numero)]</h3>
+			[<h4>(#SOUSTITRE)</h4>]
+			[(#TEXTE|paragrapher)]
+			<B_ListeImages>
+			<BOUCLE_ListeImages(DOCUMENTS){id_article}{extension==jpg|png|gif}>
+				<a href="[(#FICHIER|image_reduire{600}||extraire_attribut{'src'})]" rel="facebox">[(#FICHIER|image_masque{masque.png})]</a>
+               
+			</BOUCLE_ListeImages>
+			</B_ListeImages>
+        </div>
+		</BOUCLE_afficheGal>
+        </BOUCLE_galerie>
+        
+        <!-- contenu normal -->
+		<BOUCLE_afficheArt(ARTICLES){id_article}{par num titre}>
+        <div class="article" id="article#ID_ARTICLE">
+			<h3>[(#TITRE|supprimer_numero)]</h3>
+			[<h4>(#SOUSTITRE)</h4>]
+            [(#CHAPO||inserer_attribut{'class','chapeau'})]
+			[(#TEXTE|paragrapher)]
+            
+        </div>
+		</BOUCLE_afficheArt>
+        
+		<//B_galerie>
+	<//B_gen2>
+<//B_gen>
+</BOUCLE_out>

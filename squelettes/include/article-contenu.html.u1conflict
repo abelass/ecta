@@ -1,0 +1,85 @@
+	
+	<BOUCLE_gen1(RUBRIQUES){id_rubrique}{id_mot=2}>
+	<B_afficheDesc>
+    [<h3>(#TITRE|supprimer_numero)</h3>]
+	<!-- contenu court avec date -->
+	<BOUCLE_afficheDesc(ARTICLES){id_rubrique}{par date}{inverse}>
+    	<div class="article_date" id="article#ID_ARTICLE">
+		<h4>[(#TITRE|supprimer_numero)]</h4>
+		[<h4>(#SOUSTITRE)</h4>]
+		[(#CHAPO||inserer_attribut{'class','chapeau'})]
+		[(#TEXTE|paragrapher)]
+		</div>
+	</BOUCLE_afficheDesc>
+	</BOUCLE_gen1>
+	<BOUCLE_galerie(RUBRIQUES){id_rubrique}{id_mot=3}>
+		<!-- galerie photo -->
+		<BOUCLE_afficheGal(ARTICLES){id_rubrique}{par num titre}>
+        	<div class="article_galerie" id="article#ID_ARTICLE">
+			<h3>[(#TITRE|supprimer_numero)]</h3>
+			[<h4>(#SOUSTITRE)</h4>]
+			[(#CHAPO||inserer_attribut{'class','chapeau'})]
+			[(#TEXTE|paragrapher)]
+			<B_ListeImages>
+
+			<BOUCLE_ListeImages(DOCUMENTS){id_article}{extension==jpg|png}{doublons}>
+				<a href="[(#FICHIER|image_reduire{780}||extraire_attribut{'src'})]" rel="facebox"><img src="[(#FICHIER||image_masque{masque.png}||extraire_attribut{'src'})]" alt="#TITRE" class="onglet1" /></a>
+			</BOUCLE_ListeImages>
+			</B_ListeImages>
+            </div>
+		</BOUCLE_afficheGal>
+	</BOUCLE_galerie>
+        <!-- 2 colonnes -->
+    <BOUCLE_colonnes(RUBRIQUES){id_rubrique}{id_mot=4}>
+        	<div class="col2">
+			<BOUCLE_colonne2(ARTICLES){id_rubrique}{par num titre}{id_mot==5}{doublons}>
+            <div class="article" id="article#ID_ARTICLE">
+			<h3>[(#TITRE|supprimer_numero)]</h3>
+			[<h4>(#SOUSTITRE)</h4>]
+			[(#CHAPO||inserer_attribut{'class','chapeau'})]
+			[(#TEXTE|paragrapher)]
+            </div>
+			</BOUCLE_colonne2>
+            </div>
+            
+            <div class="col1">
+            <BOUCLE_colonne1(ARTICLES){id_rubrique}{par num titre}{doublons}{"<hr />"}>
+                <h3>[(#TITRE|supprimer_numero)]</h3>
+                [<h4>(#SOUSTITRE)</h4>]
+                [(#CHAPO||inserer_attribut{'class','chapeau'})]
+                [(#TEXTE|paragrapher)]
+            </BOUCLE_colonne1>
+            </div>  
+	</BOUCLE_colonnes>
+	<!-- document list -->
+    <BOUCLE_docu(RUBRIQUES){id_rubrique}{id_mot=143}>
+    	<BOUCLE_art(ARTICLES){id_rubrique}{par num titre}>
+        	<div class="article" id="article#ID_ARTICLE">
+			<h3>[(#TITRE|supprimer_numero)]</h3>
+			[<h4>(#SOUSTITRE)</h4>]
+			[(#CHAPO||inserer_attribut{'class','chapeau'})]
+			[(#TEXTE|paragrapher)]
+			<B_Listedoc>
+
+			<BOUCLE_Listedoc(DOCUMENTS){id_article}{mode=document}{doublons}>
+				[(#LOGO_DOCUMENT|#URL_DOCUMENT)]
+			</BOUCLE_Listedoc>
+			</B_Listedoc>
+            </div> 
+        </BOUCLE_art> 
+	</BOUCLE_docu>
+        
+	<!-- contenu normal -->
+
+	<BOUCLE_afficheArt(ARTICLES){id_rubrique}{par num titre}>
+        	<div class="article" id="article#ID_ARTICLE">
+			<h3>[(#TITRE|supprimer_numero)]</h3>
+			[<h4>(#SOUSTITRE)</h4>]
+			[(#CHAPO||inserer_attribut{'class','chapeau'})]
+			[(#TEXTE|paragrapher)]
+            </div>
+	</BOUCLE_afficheArt>
+	<//B_docu>
+	<//B_colonnes>
+    <//B_galerie>
+	<//B_gen1>

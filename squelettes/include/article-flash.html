@@ -1,0 +1,17 @@
+		<BOUCLE_art(ARTICLES){id_article}>
+        <div class="introduction">#DESCRIPTIF</div>
+        <h3>Quick menu</h3>
+        <ul>
+        [(#FLASH1|?{<li><a href="#flash_zone1">Law</a></li>})]
+        [(#FLASH_2|?{<li><a href="#flash_zone2">Office Practice</a></li>})]
+        [(#FLASH_3|?{<li><a href="#flash_zone3">Case Law</a></li>})]
+        [(#FLASH_4|?{<li><a href="#flash_zone4">ECTA News</a></li>})]
+        </ul>
+        [<div id="flash_zone0"><h3>Table of Contents</h3>(#TEXTE)</div>]
+        [<div id="flash_zone1"><h3>1 Law</h3>(#FLASH1|typo|propre)</div>]
+        [<div id="flash_zone2"><h3>2 Office Practice</h3>(#FLASH_2|typo|propre)</div>]
+        [<div id="flash_zone3"><h3>3 Case Law</h3><p class="support"><small>Summaries and case law provided by <span><a href="http://www.darts-ip.com">Darts IP</a></span></small></p>(#FLASH_3|typo|propre)</div>]
+        [<div id="flash_zone4"><h3>4 ECTA News</h3>(#FLASH_4|typo|propre)</div>]
+
+		
+        </BOUCLE_art>
