@@ -64,7 +64,7 @@
 	</select>
 	</B_third>
 	#SET{id_article,#ARRAY}
-	<BOUCLE_cl(CL_CASE_LAWS)>
+	<BOUCLE_cl(CASE_LAWS)>
 	#SET{id_article,#GET{id_article}|array_merge{#ARRAY{#COMPTEUR_BOUCLE,#ID_ARTICLE}}}	
 	</BOUCLE_cl>
 
