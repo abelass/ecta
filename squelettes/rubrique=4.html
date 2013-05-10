@@ -37,7 +37,7 @@
 		(#SESSION{id_auteur}|oui)
 		
 			<?php
-			$member = sql_fetsel('*','ecta_members','id_auteur=#SESSION{id_auteur}','','','','','ectamembersdev');
+			$member = sql_fetsel('*','spip_members','id_auteur=#SESSION{id_auteur}','','','','');
 			
 			if (!$member) {
 			?>

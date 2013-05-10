@@ -6,9 +6,9 @@
 #SET{annee,#DATE|annee}
 #SET{date_limite,4-15 00:00:00}
 
-<BOUCLE_membre(ectamembersdev:ECTA_MEMBERS){id_auteur=#SESSION{id_auteur}}{tout}>
+<BOUCLE_membre(MEMBERS){id_auteur=#SESSION{id_auteur}}{tout}>
 
-	<BOUCLE_fee(ectamembersdev:ECTA_MEMBERSHIP_TYPE){membership_fee=#MEMBERSHIP_FEE}>
+	<BOUCLE_fee(MEMBERSHIP_TYPE){membership_fee=#MEMBERSHIP_FEE}>
 		#SET{amount,#AMOUNT}
 	</BOUCLE_fee>
 	

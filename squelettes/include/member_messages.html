@@ -1,6 +1,6 @@
 #CACHE{0}
-<BOUCLE_membre(ectamembersdev:ECTA_MEMBERS){id_auteur=#SESSION{id_auteur}}>
-	<BOUCLE_type(ectamembersdev:ECTA_MEMBERSHIP_TYPE){membership_fee}>
+<BOUCLE_membre(MEMBERS){id_auteur=#SESSION{id_auteur}}>
+	<BOUCLE_type(MEMBERSHIP_TYPE){membership_fee}>
 		<BOUCLE_cout(CONDITION){si #AMOUNT|>{0}}>
 		[(#DATE|annee|=={#MEMBERSHIP_YEAR}|oui)
 			[(#DATE|mois|>{9}|oui)<p class="reponse_formulaire_erreur">You can pay your subscription fee for [(#MEMBERSHIP_YEAR|plus{1})]</p>

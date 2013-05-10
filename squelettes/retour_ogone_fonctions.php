@@ -46,14 +46,14 @@ function traite_retour_ogone($fee_year, $date) {
 
 	if (strtolower($_REQUEST['SHASIGN']) == sha1($str.$key) && $_REQUEST['STATUS'] == 9) {
 		// On est en mode direct, plus en mode avec autorisation
-		spip_query("update ecta_members set 
+		spip_query("update spip_members set 
 								membership_year='$fee_year',
 								payment_error = '', 
 								method_of_payment = '".addslashes($_REQUEST['PM'])."',
 								date_of_payment = '$date',
 								reference = '".addslashes($_REQUEST['PAYID'])."'
-								WHERE id_auteur='".addslashes($param[1])."'","ectamembersdev");
-		spip_log("update ecta_members set 
+								WHERE id_auteur='".addslashes($param[1])."'");
+		spip_log("update spip_members set 
 								membership_year='$fee_year',
 								payment_error = '', 
 								method_of_payment = '".addslashes($_REQUEST['PM'])."',
@@ -61,7 +61,7 @@ function traite_retour_ogone($fee_year, $date) {
 								reference = '".addslashes($_REQUEST['PAYID'])."'
 								WHERE id_auteur='".addslashes($param[1])."'");
 	} else {
-		spip_query("update ecta_members set 
+		spip_query("update spip_members set 
 								payment_error = '".$l_status[$_REQUEST['STATUS']].". ".addslashes($_REQUEST['NCERROR'])."',
 								method_of_payment = '".addslashes($_REQUEST['PM'])."',
 								date_of_payment = '$date',
@@ -69,7 +69,7 @@ function traite_retour_ogone($fee_year, $date) {
 								WHERE id_auteur='".addslashes($param[1])."'","ectamembersdev");
 		spip_log($_REQUEST['SHASIGN']." == ".sha1($str.$key));
 		spip_log($str.$key);
-		spip_log("update ecta_members set 
+		spip_log("update spip_members set 
 								payment_error = '".$l_status[$_REQUEST['STATUS']].". ".addslashes($_REQUEST['NCERROR'])."',
 								method_of_payment = '".addslashes($_REQUEST['PM'])."',
 								date_of_payment = '$date',

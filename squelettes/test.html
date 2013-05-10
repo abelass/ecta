@@ -12,7 +12,7 @@
 		mysql_connect("mysql.ecta.name", "ecta", "mzt63ryx") or die("Could not connect: " . mysql_error());
 		mysql_select_db("ectaname");
 		
-		$result = mysql_query("SELECT membernumber,title,name,surname,email,addr1,addr2,addr3,addr4,addr5,country,tel1,tel2,tel3,fax1,fax2,company,vat_number FROM ecta_members WHERE membernumber = '$member'");
+		$result = mysql_query("SELECT membernumber,title,name,surname,email,addr1,addr2,addr3,addr4,addr5,country,tel1,tel2,tel3,fax1,fax2,company,vat_number FROM spip_members WHERE membernumber = '$member'");
 		
 		while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
 printf("
