@@ -1,4 +1,0 @@
-<?php
-if (!defined("_ECRIRE_INC_VERSION")) return;
-spip_connect_db('mysql.ecta.name','','ecta','mzt63ryx','ectaname','mysql', '');
-?>
