@@ -130,7 +130,7 @@
 <table border="0" width="91%">
 <tbody>
 <BOUCLE_case_law(ARTICLES){id_rubrique} {id_article IN #GET{id_article}} {annee=#ENV{annee}}{!par date}{0,#GET{limit}}>#SET{id_article,#ID_ARTICLE}#SET{titre,#TITRE}
-	<BOUCLE_claws(CL_CASE_LAWS articles){id_article}>
+	<BOUCLE_claws(CASE_LAWS case_laws_liens articles){id_article}>
 <tr class="flash">
     <td class="bordercolor" height="40" width="7%"><div class="liengr"><strong>Juris:</strong></div></td>
     <td class="bordercolor" width="24%"><div class="lienbl">#JURIS</div></td>
