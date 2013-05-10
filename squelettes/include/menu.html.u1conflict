@@ -1,7 +1,0 @@
-
-<div id="menu">
-<ul>
-<BOUCLE_rubriques(RUBRIQUES){racine}{id_rubrique!IN 27,436}{par num titre}>
-	<li class="item1[(#EXPOSER|_down)]" id="item#ID_RUBRIQUE"><a href="#URL_RUBRIQUE"><span>[(#TITRE|supprimer_numero)]</span></a></li></BOUCLE_rubriques>
-</ul>
-</div>
