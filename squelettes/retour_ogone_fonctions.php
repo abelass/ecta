@@ -66,7 +66,7 @@ function traite_retour_ogone($fee_year, $date) {
 								method_of_payment = '".addslashes($_REQUEST['PM'])."',
 								date_of_payment = '$date',
 								reference = '".addslashes($_REQUEST['PAYID'])."'
-								WHERE id_auteur='".addslashes($param[1])."'","ectamembersdev");
+								WHERE id_auteur='".addslashes($param[1])."'");
 		spip_log($_REQUEST['SHASIGN']." == ".sha1($str.$key));
 		spip_log($str.$key);
 		spip_log("update spip_members set 
