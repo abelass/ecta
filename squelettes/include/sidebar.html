@@ -1,10 +1,10 @@
 #CACHE{3600}
-<BOUCLE_ancetres(RUBRIQUES){id_parent=#ID_SECTEUR}><BOUCLE_test(CONDITION){si #EXPOSER}>
+<BOUCLE_ancetres(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
 <B_oncles>
 <div class="box1">
 <div class="alone">
 <ul id="ss_menu">
-<BOUCLE_oncles(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre}><li class="item2[(#EXPOSER|_down)]"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>
+<BOUCLE_oncles(RUBRIQUES){id_parent}{par num titre}><li class="item2[(#EXPOSER|_down)]"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>
 <B_oncles2><ul style="display:[(#EXPOSER|block,none)];"><BOUCLE_oncles2(RUBRIQUES){id_parent}{par num titre}><li class="item3[(#EXPOSER|_down)]"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a><B_oncles3><ul style="display:[(#EXPOSER|block,none)];"><BOUCLE_oncles3(RUBRIQUES){id_parent}{par num titre}><li class="item4[(#EXPOSER|_down)]"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a><B_oncles4><ul style="display:[(#EXPOSER|block,none)];"><BOUCLE_oncles4(RUBRIQUES){id_parent}{par num titre}><li class="item5[(#EXPOSER|_down)]"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li></BOUCLE_oncles4>
 </ul></B_oncles4></li></BOUCLE_oncles3>
 </ul></B_oncles3></li></BOUCLE_oncles2>
@@ -12,7 +12,7 @@
 </li>
 </BOUCLE_oncles>
 </ul>
-</div></div></B_oncles></BOUCLE_test></BOUCLE_ancetres>
+</div></div></B_oncles></BOUCLE_ancetres>
 
 [<!--login-ok-->
 (#SESSION{id_auteur}|oui)
@@ -24,7 +24,7 @@ if ($member) {
 ?>
 <div class="box1" id="member_profile_mini">
 <h3>My information</h3>
-[(#INCLURE{fond=include/member_info}{env})]
+[(#INCLURE{fond=include/member_info,env,ajax})]
 </div>
 
 <div class="box1" id="member_messages">
