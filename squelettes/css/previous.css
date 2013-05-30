@@ -1,0 +1,202 @@
+
+
+/* FORMULAIRES SPIP */
+#formulaire_recherche LABEL,
+.formulaire_recherche LABEL,
+#formulaire_menu_lang LABEL,
+#formulaire_recherche INPUT.submit{
+	display:none;
+}
+.formulaire_spip ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+SELECT.select{
+	background-color:#EEEEEE;
+	border:1px solid #CCC;
+	padding:2px;
+	margin:5px 0 5px 0;
+	font-size:12px;display:block;
+}
+TEXTAREA.forml, TEXTAREA.formo, #formulaire_contact TEXTAREA, TEXTAREA.text{
+	background-color:#EEEEEE;
+	border:1px solid #CCC;
+	width:320px;
+	padding:5px;
+	font-family:Arial, Georgia, "Times New Roman";
+	display:block;
+	margin:5px 0 5px 0;
+	font-size:13px;
+}
+INPUT.forml:focus, INPUT.formo:focus, INPUT.text:focus, #formulaire_contact TEXTAREA:focus, INPUT.password:focus, TEXTAREA.text:focus{
+	background-color:#CCC;
+	border:1px solid #999;
+}
+#member_search_alphabet{
+	margin:10px 0;
+}
+#member_search_alphabet A{
+	display:inline-block;
+	background-color:#EEEEEE;
+	border:1px solid #CCC;
+	padding:1px 3px;
+	margin-right:1px;
+}
+#member_search_alphabet A:hover{
+	background-color:#CCC;
+	border:1px solid #999;
+}
+.spip_form_choix_multiple LI{
+	list-style:none;
+}
+.spip_form_choix_multiple LABEL{
+	font-size:0.9em;
+}
+.reponse_formulaire_ok{
+	border:5px solid #69921D;
+	background-color:#8BC126;
+	padding:10px;
+	font-weight:bold;
+	text-align:center;
+	color:#FFFFFF;
+}
+#member_messages .reponse_formulaire_ok{
+	border:none;
+	background:transparent url('../images/icon-ok.png') no-repeat top left;
+	padding:10px 0 10px 50px;
+	font-weight:bold;
+	text-align:left;
+	color:#333;
+}
+.reponse_formulaire_erreur{
+	border:5px solid #A6020F;
+	background-color:#FC1F30;
+	padding:10px;
+	font-weight:bold;
+	text-align:center;
+	color:#FFFFFF;
+}
+#member_messages .reponse_formulaire_erreur{
+	border:none;
+	background:transparent url('../images/icon-ko.png') no-repeat top left;
+	padding:10px 0 10px 50px;
+	font-weight:bold;
+	text-align:left;
+	color:#A6020F;
+}
+.reponse_formulaire_erreur A,
+.reponse_formulaire_ok A{
+	color:#FFF;
+	text-decoration:underline;
+}
+
+
+
+#member_search{border-bottom:2px solid #ccc;margin-bottom: 10px;}
+#member_messages a.button{position:relative;margin:0 0 10px 10px;}
+#login P{font-size:1.2em}
+#login LABEL{font-size:0.9em}
+#member_signout{position:absolute;right:0;top:10px;}
+#member_file .col1{width:300px;}
+#member_file .col2{width:120px;}
+#member_file .col1 TABLE{border:none;padding:0px;}
+.label{color:#666;}
+#member_file .col1 TABLE TD.label{width:100px;}
+.avatar{border:#999 3px solid;}
+A:hover .avatar{border:#6C4585 3px solid;}
+#member_info{
+	position:relative;
+}
+#member_info .member_edit{
+	display:block;
+	position:absolute;
+	right:5px;
+	bottom:0px;
+}
+/* FLASH */
+#flash_search{
+	background-color:#FFF;
+	border:#CCCCCC 1px solid;
+	padding:10px;
+	margin-bottom:20px;
+}
+#flash_search H4{
+	border-bottom:#CCCCCC 1px solid;
+	padding-bottom:5px;
+	margin-bottom:10px;
+	color:#666;
+	font-size:1.1em;
+}
+.flash{background-color:#FFF;padding:5px;margin-bottom:5px;}
+#flash_search .flash{background-color:#EEEEEE;padding:5px;margin-bottom:5px;}
+/*.flash .flash-desc{float:left;width:400px;}*/
+.flash .flash-desc H3{font-size:1.4em;margin:1em 0;}
+.flash .flash-desc H5{text-transform:uppercase;font-size:1.1em;}
+.flash .flash-url{float:right;width:100px;font-size:0.9em;text-align:right}
+.flash .flash-url a.pdf{display:inline-block;padding-right:26px;background:transparent url('../images/ico_pdf.png') no-repeat top right;height:24px;}
+/* */
+#tabs .nav{border:none;z-index:10;position:relative;top:1px;}
+#tabs .nav LI{background-color:#CCCCCC;border:#CCCCCC 1px solid;margin-right:2px;}
+#tabs .nav LI A{color:#666;font-weight:bold; padding: 0.5em 1em;}
+#tabs .nav LI.ui-tabs-selected{background-color:#FFFFFF;border-bottom:#FFFFFF 1px solid;}
+#tabs .ui-tabs-panel{background-color:#FFF;padding:20px;border:#CCCCCC 1px solid;}
+#tabs .ui-tabs-panel LI LABEL{border-bottom:#CCCCCC 2px solid;display:block;color:#666}
+#tabs .ui-tabs-panel LI LI LABEL{border-bottom:none;font-size:0.9em;color:#333}
+
+#main div.content form ul {padding:0;}
+
+.menu_list{	float:right;}
+
+#old_fields{opacity:0.5;width:260px;float:left;}
+#new_fields{
+	background-color:#FC1F30;
+	padding:10px;
+	width:260px;
+	color:#FFF;
+	float:right;
+}
+#new_fields div.label{
+	color:#FFF;
+	font-weight:bold;
+}
+#new_fields ul li div label{
+	color:#FFF;
+	font-weight:normal;
+	font-size: 10px;
+	display: inline;
+}
+#new_fields ul li div input.text{
+	display: inline;
+}
+#new_fields input.text-short{
+	width:20px;
+	display: inline;
+	background-color:#EEEEEE;
+	border:1px solid #CCC;
+	padding:5px;
+	font-family:Arial, Georgia, "Times New Roman";
+	margin:5px 0 5px 0;
+	font-size:13px;
+}
+#new_fields input.text-medium{
+	width:140px;
+	display: inline;
+	background-color:#EEEEEE;
+	border:1px solid #CCC;
+	padding:5px;
+	font-family:Arial, Georgia, "Times New Roman";
+	margin:5px 0 5px 0;
+	font-size:13px;
+}
+
+form p.boutons_formulaire{clear:both;}
+
+
+#main div.content form ul {list-style-type: none; padding-left:0;}
+
+SPAN.spip_documents_left {
+    background-color: #FFFFFF;
+    margin: 0 10px 5px 0;
+    padding: 5px;
+}

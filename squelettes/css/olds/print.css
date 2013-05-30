@@ -1,0 +1,38 @@
+/* 
+***************************************************************
+*                 SQUELETTES EXIBIT POUR ECTA                 *
+*                                                             *
+*       Copyright 2009 Benoît Vrins {benoit@exibit.be}        *
+***************************************************************
+*/
+body {
+  background: white;
+  font-size: 9pt;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background:transparent;
+  }
+img{border:none;}
+.spip-admin-boutons{
+	display: none;
+}
+#header{
+	margin:0 auto;
+	width:100%;
+	position:relative;
+	background-image:none;
+}
+a:link, a:visited {
+  background: transparent;
+  text-decoration: none;
+  color:#6C4585;
+  }
+H1{font-size:1.7em;} 
+H2{font-size:1.6em;} 
+H3{font-size:1.5em;} 
+H4{font-size:1.4em;} 
+H5{font-size:1.3em;} 
+H6{font-size:1.2em;}
+
+
+
+

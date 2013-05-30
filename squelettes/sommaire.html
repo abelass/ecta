@@ -1,172 +1,105 @@
 <BOUCLE_accueil(RUBRIQUES){id_rubrique=11}>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<title>#NOM_SITE_SPIP - [(#TITRE|textebrut|supprimer_numero)]</title>
-<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
-<meta name="description" content="[(#DESCRIPTIF_SITE_SPIP|textebrut)]" />
-<meta name="keywords" content="<BOUCLE_metatags(MOTS){id_groupe=1}{", "}>[(#TITRE|supprimer_numero)]</BOUCLE_metatags>" />
-<meta name="distribution" content="GLOBAL" />
-<meta name="rating" content="GENERAL" />
-<meta name="robots" content="INDEX,FOLLOW" />
-<meta name="author" content="#NOM_SITE_SPIP" />
-<meta name="revisit-after" content="7 days" />
-<link rel="shortcut icon" href="[(#CHEMIN{images/favicon.png})]" />
-<link rel="stylesheet" href="[(#CHEMIN{css/styles-2011.css})]" type="text/css" media="screen" />
-<link rel="stylesheet" href="[(#CHEMIN{css/facebox.css})]" type="text/css" media="screen" />
-<!--[if IE]><style type="text/css" media="screen,projection">@import "[(#CHEMIN{css/ie7.css})]";</style><![endif]-->
-<!--[if lt IE 7]><style type="text/css" media="screen,projection">@import "[(#CHEMIN{css/ie6.css})]";</style><![endif]-->
-<script type="text/javascript" src="[(#CHEMIN{js/jquery-1.6.2.min.js})]"></script>
-<script type="text/javascript" src="[(#CHEMIN{js/jquery-ui-1.8.16.custom.min.js})]"></script>
-<script type="text/javascript" src="[(#CHEMIN{js/facebox.js})]"></script> 
-<script type="text/javascript" src="[(#CHEMIN{js/application.js})]"></script>
-<script type="text/javascript"> 
-     $(function() {
-        // 
-		$( "#principal #home-news" ).tabs({
-		fx: { opacity: 'toggle' }
-		});
-    });
-</script>
-<link rel="stylesheet" href="[(#CHEMIN{css/home.css})]" type="text/css" media="screen" />
+	<INCLURE{fond=include/head}{id_rubrique}>
 </head>
 <body>
+<div id="contener">
+	<!-- ****************************** HEADER ****************************** //-->
+	<INCLURE{fond=include/header}{id_rubrique}>
 
-<div id="wrap">
+	<div class="contener">
 
-<div id="header">
-	<h1><a href="http://www.ecta.org" title="Back to the homepage">ECTA - European Communities Trade Mark Association</a></h1>
-	<INCLURE{fond=include/tools}{id_rubrique}>
-    <INCLURE{fond=include/menu}{id_rubrique}> 
-</div>
+		<!-- ****************************** MENU ****************************** //-->
+		<INCLURE{fond=include/menu}{id_rubrique}>
 
-<div id="principal">
-	<div id="contenu">
-	
-	<div class="box1" id="home-news">
-		<h3>What's new ?</h3>
-		<ul id="home-news-menu">
-			<li><a href="#tabs-1">Flash</a></li>
-			<li><a href="#tabs-2">Position Papers</a></li>
-			<li><a href="#tabs-3">Press Release</a></li>
-		</ul>
-		<div id="tabs-1">
-			<!--flash-->
-			<BOUCLE_fl(RUBRIQUES){id_rubrique=15}>
-			<BOUCLE_flash(ARTICLES){id_rubrique}{par date}{inverse}{0,1}>
-			<h4><a href="#URL_ARTICLE">Flash #TITRE</a></h4>
-			[<img src="(#CHEMIN{images/illu-flash.png})" alt="flash" id="home-news-flash" />]
-			#CHAPO
-			</BOUCLE_flash>
-			</BOUCLE_fl>
-		</div>
+		<div id="main">
+			<!-- ****************************** CAROUSEL ****************************** //-->
+			<INCLURE{fond=include/carousel}>
 		
-		<div id="tabs-2">
-			<!--position papers-->
-			<BOUCLE_pp(RUBRIQUES){id_rubrique=293}>
-			
-			<BOUCLE_testSiArticles(ARTICLES){id_rubrique} {0,1}> </BOUCLE_testSiArticles>
-			<BOUCLE_paper1(ARTICLES){id_rubrique}{par date}{inverse}{0,1}>
-			<h4>[(#TITRE|supprimer_numero)]</h4>
-			#TEXTE
-			</BOUCLE_paper1>
-			</B_testSiArticles>
-			<BOUCLE_premierFils(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre}{0,1}>
-			<BOUCLE_paper2(ARTICLES){id_rubrique}{par date}{inverse}{0,3}>
-			<h4>[(#TITRE|supprimer_numero)]</h4>
-			#TEXTE
-			</BOUCLE_paper2>
-			</BOUCLE_premierFils>
-			<//B_testSiArticles>
-			
-			</BOUCLE_pp>
+			<!-- ****************************** TABS ****************************** //-->
+			<div class="tabs" role="tabpanel">
+				<ul role="tablist">
+					<li>
+						<a href="" class="active" id="tabs-control-1" role="tab" aria-controls="tabs-content-1">ECTA FLASH</a>
+					</li><li>
+						<a href="" role="tab" id="tabs-control-2" aria-controls="tabs-content-2">POSITION PAPERS</a>
+					</li><li>
+						<a href="" role="tab" id="tabs-control-3" aria-controls="tabs-content-3">PRESS RELEASE</a>
+					</li>
+				</ul><div class="tabcontent">
+					<div id="tabs-content-1" aria-labelledby="tabs-control-1">
+						<!--flash-->
+						<BOUCLE_fl(RUBRIQUES){id_rubrique=15}>
+						<BOUCLE_flash(ARTICLES){id_rubrique}{par date}{inverse}{0,1}>
+						#CHAPO
+						<a href="#URL_ARTICLE" class="more">more</a>
+						</BOUCLE_flash>
+						</BOUCLE_fl>
+					</div>
+					<div id="tabs-content-2" aria-labelledby="tabs-control-2">
+						<!--position papers-->
+						<BOUCLE_pp(RUBRIQUES){id_rubrique=293}>
+						
+						<BOUCLE_testSiArticles(ARTICLES){id_rubrique} {0,1}> </BOUCLE_testSiArticles>
+						<BOUCLE_paper1(ARTICLES){id_rubrique}{par date}{inverse}{0,1}>
+						#TEXTE
+						<a href="#URL_ARTICLE" class="more">more</a>
+						</BOUCLE_paper1>
+						</B_testSiArticles>
+						<BOUCLE_premierFils(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre}{0,1}>
+						<BOUCLE_paper2(ARTICLES){id_rubrique}{par date}{inverse}{0,3}>
+						#TEXTE
+						<a href="#URL_ARTICLE" class="more">more</a>
+						</BOUCLE_paper2>
+						</BOUCLE_premierFils>
+						<//B_testSiArticles>
+						
+						</BOUCLE_pp>
+					</div>
+					<div id="tabs-content-3" aria-labelledby="tabs-control-3">
+						<!--press release-->
+						<BOUCLE_pr(ARTICLES){id_article=1677}>
+						#TEXTE
+						<a href="#URL_ARTICLE" class="more">more</a>
+						</BOUCLE_pr>
+					</div>
+				</div>
+			</div>
+
+			<!-- ****************************** ASSOCIATION ****************************** //-->			
+			<div class="association">
+				<div id="association-text">
+					<BOUCLE_assoc(RUBRIQUES){id_rubrique=1}>
+			        [<h2>(#TITRE|supprimer_numero)</h2>]<a href="#URL_RUBRIQUE" class="more">more</a>
+					</BOUCLE_assoc>
+					<BOUCLE_what(ARTICLES){id_article=14}>#TEXTE</BOUCLE_what>
+				</div>
+
+				<div id="banner-join">
+					<BOUCLE_join(RUBRIQUES){id_rubrique=28}>
+					<a href="#URL_RUBRIQUE">
+						<img src="/[(#CHEMIN{img/main-page-30-resons-to-become-an-ecta-memeber.jpg})]" alt="">
+					</a>
+					</BOUCLE_join>
+				</div>
+			</div>
 		</div>
-		
-		<div id="tabs-3">
-			<!--press release-->
-			<BOUCLE_pr(ARTICLES){id_article=1677}>
-			<h4>[(#TITRE|supprimer_numero)]</h4>
-			#TEXTE
-			</BOUCLE_pr>
-		</div>
-	</div>
-	<!-- association -->
-	<div class="col3 box1" id="home-association">
-		<BOUCLE_assoc(RUBRIQUES){id_rubrique=1}>
-        [<h3>(#TITRE|supprimer_numero)</h3>]
-        <a href="#URL_RUBRIQUE" class="button"><span>More</span></a>
-        <div>
-        	<BOUCLE_what(ARTICLES){id_article=14}>#TEXTE</BOUCLE_what>
-        </div>
-        </BOUCLE_assoc>
-    </div>
-    <!-- committees -->
-    <div class="col3 box1 last" id="home-committees">
-    	<BOUCLE_committees(RUBRIQUES){id_rubrique=2}>
-        [<h3>(#TITRE|supprimer_numero)</h3>]
-        <a href="#URL_RUBRIQUE" class="button"><span>More</span></a>
-        <div>
-        <B_committees_menu><ul><BOUCLE_committees_menu(RUBRIQUES){id_parent}{par num titre}>
-        	<li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li></BOUCLE_committees_menu>
-        </ul></B_committees_menu>
-        </div>
-        </BOUCLE_committees>
-    </div>
-     <div class="clear"> </div>
+
+		<!-- ****************************** SIDE BANNERS ****************************** //-->
+		<INCLURE{fond=include/side-banners}>
+
+		<!-- ****************************** SIDE EVENTS ****************************** //-->
+		<INCLURE{fond=include/side-events}>
 	</div>
 
-    <div id="sidebar">
-    <!-- conference -->
-    
-    <div class="box1" id="sidebar-conference">
-    	<!--<a href="http://conference.ecta.org" target="_blank">-->
-    	<BOUCLE_conference(ARTICLES){id_rubrique=135}{par num titre}{0,1}>
-            [<h3>(#TITRE|supprimer_numero)</h3>]
-           	<a href="#URL_ARTICLE" class="button"><span>More</span></a>
-           	<div>
-            [(#CHAPO|sinon{#INTRODUCTION}|paragrapher)]
-            [<div class="thumb">(#LOGO_ARTICLE||image_reduire{288})</div>]
-            </div>
-        </BOUCLE_conference>
-        <!--</a>-->
-	</div>
-	
-	<!-- others events -->
-	<div class="box1" id="sidebar-events">
-		<BOUCLE_events(ARTICLES){id_rubrique=135}{par num titre}{1,n}>
-            [<h3>(#TITRE|supprimer_numero)</h3>]
-           	<a href="#URL_RUBRIQUE" class="button"><span>More</span></a>
-           	<div>
-            [(#TEXTE)]
-            [<div class="thumb">(#LOGO_ARTICLE||image_reduire{288})</div>]
-            </div>
-        </BOUCLE_events>
-	</div>
-	<!-- join us -->
-	<div class="box1" id="sidebar-join">
-		<h3>become a member</h3>
-		<BOUCLE_join(RUBRIQUES){id_rubrique=28}>
-		<a href="#URL_RUBRIQUE" class="button"><span>Join</span></a>
-		<div>
-		<img src="[(#CHEMIN{images/illu-join.png})]" alt="illu-join" id="sidebar-join-illu" />
-		<p><a href="#URL_RUBRIQUE">Join us</a> or read our</p>
-		<p><a href="#URL_RUBRIQUE" id="sidebar-join-reasons"><img src="[(#CHEMIN{images/30reasons.png})]" alt="30reasons" width="195" height="44" /></a>
-		</p>
-		</div>
-		</BOUCLE_join>
-	</div>
-	<div class="box1" id="sidebar-join">
-		<div style="text-align:center">
-			<img src="squelettes/images/logo_ipr_helpdesk_small.png" alt="IPR Heldesk" />
-		</div>
-	</div>
-    </div>
-    <div class="clear"> </div>
+	<!-- ****************************** FOOTER ****************************** //-->
+	<INCLURE{fond=include/footer}>
+
 </div>
-
-<INCLURE{fond=include/footer}>
-</div>
-
+<script type="text/javascript" src="/[(#CHEMIN{js/javascript.js})]"></script>
+<script type="text/javascript" src="/[(#CHEMIN{js/css3-mediaqueries.js})]"></script>
 </body>
 </html>
 </BOUCLE_accueil>

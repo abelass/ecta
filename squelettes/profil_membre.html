@@ -1,28 +1,41 @@
 #CACHE{0}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<INCLURE{fond=include/head}{id_rubrique=4}>
+	<INCLURE{fond=include/head}{id_rubrique=4}>
 </head>
 <body>
-<div id="wrap">
+<div id="contener">
+	<!-- ****************************** HEADER ****************************** //-->
+	<INCLURE{fond=include/header}{id_rubrique=4}>
 
-<INCLURE{fond=include/header}{id_rubrique=4}>
-<div id="principal">
-	<div id="contenu">
-	[(#SESSION{id_auteur}|oui)
-		 <h3>My information | <span>Modify</span></h3>
-		#FORMULAIRE_FORM_PUBLIC
-	]
-	</div>
-    <div id="sidebar">
-    	<INCLURE{fond=include/sidebar}{id_rubrique=4}{env}>
+	<div class="contener">
+
+		<!-- ****************************** MENU ****************************** //-->
+		<INCLURE{fond=include/menu}{id_rubrique=4}>
+
+		<div id="main">
+
+            <!-- ****************************** CONTENT ****************************** //-->
+            <div class="content" role="main">
+				[(#SESSION{id_auteur}|oui)
+					 <h2>My information | <span>Modify</span></h2>
+					#FORMULAIRE_FORM_PUBLIC
+				]
+			</div>
+		</div>
+
+        <!-- ****************************** SIDE MENU ****************************** //-->
+      	<INCLURE{fond=include/side-menu}{id_rubrique=4}{env}>
+
     </div>
-</div>
 
-<INCLURE{fond=include/footer}>
+    <!-- ****************************** FOOTER ****************************** //-->
+    <INCLURE{fond=include/footer}>
 
 </div>
+<script type="text/javascript" src="/[(#CHEMIN{js/javascript.js})]"></script>
+<script type="text/javascript" src="/[(#CHEMIN{js/css3-mediaqueries.js})]"></script>
 
 </body>
 </html>

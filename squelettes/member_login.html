@@ -1,7 +1,50 @@
 [(#CACHE{0})]
 
-<div id="login">
-     <p>Please log in to access the member area</p>
-     [(#LOGIN_PUBLIC{#ENV{return}})] 
-</div>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <INCLURE{fond=include/head}{id_rubrique}>
+</head>
+<body>
+<div id="contener">
+    <!-- ****************************** HEADER ****************************** //-->
+    <INCLURE{fond=include/header}{id_rubrique}>
+
+    <div class="contener">
+
+        <!-- ****************************** MENU ****************************** //-->
+        <INCLURE{fond=include/menu}{id_rubrique}>
+
+        <div id="main">
+
+            <!-- ****************************** YOU ARE HERE ****************************** //-->
+    		<INCLURE{fond=include/path}{id_rubrique}>
+
+            <!-- ****************************** CONTENT ****************************** //-->
+            <div class="content" role="main">
+
+				<div id="login">
+				     <h1>Please log in to access the member area</h1>
+				     [(#LOGIN_PUBLIC{#ENV{return}})] 
+				</div>
+
+            </div>
+        </div>
+
+        <!-- ****************************** SIDE BANNERS ****************************** //-->
+        <INCLURE{fond=include/side-banners}>
+
+        <!-- ****************************** SIDE MENU ****************************** //-->
+      	<INCLURE{fond=include/side-menu}{id_rubrique}>
+
+    </div>
+
+    <!-- ****************************** FOOTER ****************************** //-->
+    <INCLURE{fond=include/footer}>
+
+</div>
+<script type="text/javascript" src="/[(#CHEMIN{js/javascript.js})]"></script>
+<script type="text/javascript" src="/[(#CHEMIN{js/css3-mediaqueries.js})]"></script>
+</body>
+</html>

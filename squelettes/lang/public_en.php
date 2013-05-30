@@ -21,8 +21,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'syndication' => 'Syndication',
 'standards_web' => 'This website respects web standards',
 //V
-'vous_etes_ici' => 'You are here'
+'vous_etes_ici' => 'You are here',
 
+'envoyer_message' => 'Send us a message'
 );
 
 

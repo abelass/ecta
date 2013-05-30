@@ -1,2 +1,8 @@
-<BOUCLE_principale5(RUBRIQUES){id_rubrique}{id_rubrique!=27}><B_hierarchie><div id="chemin"><:vous_etes_ici:> : <BOUCLE_hierarchie(HIERARCHIE){id_rubrique}{" &raquo; " }><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></BOUCLE_hierarchie></div></B_hierarchie>
+<BOUCLE_principale5(RUBRIQUES){id_rubrique}{id_rubrique!=27}>
+<B_hierarchie>
+			<div class="breadcrumbs">
+				<span><:vous_etes_ici:></span> : <BOUCLE_hierarchie(HIERARCHIE){id_rubrique}{" &raquo; " }>
+				<a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></BOUCLE_hierarchie>
+			</div>
+</B_hierarchie>
 </BOUCLE_principale5>

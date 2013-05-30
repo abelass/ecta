@@ -1,6 +1,6 @@
 		<BOUCLE_afficheArt(ARTICLES){id_rubrique}{par num titre}>
         	<div class="article" id="article#ID_ARTICLE">
-			<h3>[(#TITRE|supprimer_numero)]</h3>
+			<h2>[(#TITRE|supprimer_numero)]</h2>
 			[<h4>(#SOUSTITRE)</h4>]
 			[(#CHAPO||inserer_attribut{'class','chapeau'})]
 			[(#TEXTE|paragrapher)]

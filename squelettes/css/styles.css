@@ -468,7 +468,7 @@ SPAN.details{
 .box1 a.button{position: absolute;top:10px;right: 8px;}
 .box1 > div{padding:10px;border-top: 1px solid #ccc;}
 .box1 > div.alone{border-top: none;}
-.box1 > h3{
+.box1 h3{
 	line-height: 2em;
 	font-size: 1.8em;
 	background: #eee url('../images/bg_box1.jpg') repeat-x left top;
@@ -767,3 +767,5 @@ A:hover .avatar{border:#6C4585 3px solid;}
 }
 
 form p.boutons_formulaire{clear:both;}
+
+label[for="company"] {display:block;}

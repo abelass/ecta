@@ -1,0 +1,13 @@
+		<div id="side-banners">
+			<BOUCLE_sidebanners(ARTICLES) {type_mot=Promobanners} {titre_mot=sidebar-banner} {par date} {inverse}>
+			<a href="#URL_ARTICLE" alt="(#TITRE|attribut_html)">
+				[(#LOGO_ARTICLE||image_reduire{241}|inserer_attribut{class, banner})]
+			</a>
+			</BOUCLE_sidebanners>
+
+			<BOUCLE_doc_banner(DOCUMENTS){tout}{titre_mot=sidebar-banner}{!par date}>
+			<a href="#URL_DOCUMENT" alt="(#TITRE|attribut_html)">
+				[(#LOGO_DOCUMENT||image_reduire{241}|inserer_attribut{class, banner})]
+			</a>
+			</BOUCLE_doc_banner>
+		</div>

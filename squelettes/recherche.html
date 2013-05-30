@@ -1,37 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<INCLURE{fond=include/head}>
+	<INCLURE{fond=include/head}{id_rubrique}>
 </head>
 <body>
+<div id="contener">
+	<!-- ****************************** HEADER ****************************** //-->
+	<INCLURE{fond=include/header}{id_rubrique}>
 
-<div id="wrap">
+	<div class="contener">
 
-<INCLURE{fond=include/header}>
+		<!-- ****************************** MENU ****************************** //-->
+		<INCLURE{fond=include/menu}{id_rubrique}>
 
-<div id="principal">
-	<div id="contenu">
-		<div id="chemin"><:vous_etes_ici:> : <a href="#"><:resultats_recherche:></a></div>
-		<!-- Articles trouves -->
-			<B_articlesAA>
-			<h3><:resultats_recherche:></h3>			
-			<dl id="resultats">
-			<BOUCLE_articlesAA(ARTICLES){recherche}{par date}{inverse}>
-				<dt><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dt>
-				<dd>[(#INTRODUCTION|paragrapher|couper{180})]</dd>
-			</BOUCLE_articlesAA>
-			</dl>
-			</B_articlesAA>
-			<p><:resultats_recherche_pas:></p>
-			<//B_articlesAA>
+		<div id="main">
+
+			<div  class="breadcrumbs">
+				<:vous_etes_ici:> : <a href="#"><:resultats_recherche:></a>
+			</div>
+
+            <div class="content" role="main">
+	            <!-- Articles trouves -->
+				<B_articlesAA>
+				<h1><:resultats_recherche:></h1>			
+				<dl id="resultats">
+				<BOUCLE_articlesAA(ARTICLES){recherche}{par date}{inverse}{pagination}>
+					<dt><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dt>
+					<dd>[(#INTRODUCTION|paragrapher|couper{180})]</dd>
+				</BOUCLE_articlesAA>
+				</dl>
+				#PAGINATION
+				</B_articlesAA>
+				<p><:resultats_recherche_pas:></p>
+				<//B_articlesAA>
+			</div>
+		</div>
 	</div>
-    <div id="sidebar">
-    	
-    </div>
-</div>
-<INCLURE{fond=include/footer}>
+
+	<!-- ****************************** FOOTER ****************************** //-->
+	<INCLURE{fond=include/footer}>
 
 </div>
-
+<script type="text/javascript" src="/[(#CHEMIN{js/javascript.js})]"></script>
+<script type="text/javascript" src="/[(#CHEMIN{js/css3-mediaqueries.js})]"></script>
 </body>
 </html>

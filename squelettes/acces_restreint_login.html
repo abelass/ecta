@@ -1,27 +1,32 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<INCLURE{fond=include/head}>
+    <INCLURE{fond=include/head}{id_rubrique}>
 </head>
 <body>
+<div id="contener">
+    <!-- ****************************** HEADER ****************************** //-->
+    <INCLURE{fond=include/header}{id_rubrique}>
 
-<div id="wrap">
+    <div class="contener">
 
-<INCLURE{fond=include/header}>
+        <!-- ****************************** MENU ****************************** //-->
+        <INCLURE{fond=include/menu}{id_rubrique}>
 
-<div id="principal">
-	<div id="contenu">
-		<div id="chemin"><:vous_etes_ici:> : <a href="#">Login</a></div>
-		<h3>Login</h3>
-		<INCLURE{fond=member_login}{retour}>
+        <div id="main">
+
+        	<div id="contenu">
+				<h3>Login</h3>
+				<INCLURE{fond=member_login}{retour}>
+			</div>
+    	</div>
 	</div>
-    <div id="sidebar">
-    	
-    </div>
-</div>
-<INCLURE{fond=include/footer}>
+
+    <!-- ****************************** FOOTER ****************************** //-->
+    <INCLURE{fond=include/footer}>
 
 </div>
-
+<script type="text/javascript" src="/[(#CHEMIN{js/javascript.js})]"></script>
+<script type="text/javascript" src="/[(#CHEMIN{js/css3-mediaqueries.js})]"></script>
 </body>
 </html>

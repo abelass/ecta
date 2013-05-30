@@ -1,75 +1,89 @@
 <BOUCLE_rub(RUBRIQUES){id_rubrique}>
 <BOUCLE_testSiArticles(ARTICLES){id_rubrique} {0,1}> </BOUCLE_testSiArticles>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+<html>
 <head>
-<INCLURE{fond=include/head}{id_rubrique}>
+    <INCLURE{fond=include/head}{id_rubrique}>
 </head>
 <body>
-<div id="wrap">
+<div id="contener">
+    <!-- ****************************** HEADER ****************************** //-->
+    <INCLURE{fond=include/header}{id_rubrique}>
 
-<INCLURE{fond=include/header}{id_rubrique}>
-<div id="principal">
-	<div id="contenu">
-		<INCLURE{fond=include/path}{id_rubrique}>
-        
-        [<!--ogone-ok-->(#ENV{retour_ogone}|=={success}|oui)
-        <div class="reponse_formulaire_ok">
-        <p><strong>PAYMENT SUCCESSFUL !</strong></p>
-        <p>Your subscription fee is now up to date</p>
-     	</div>
-        ]
-        
-        [<!--ogone-decline-->(#ENV{retour_ogone}|=={decline}|oui)
-        <div class="reponse_formulaire_erreur">
-        <p><strong>PAYMENT DECLINED  !</strong></p>
-        <p>Your subscription fee has not been paid. Please try again</p>
-    	</div>
-        ]
-        [<!--ogone-cancel-->(#ENV{retour_ogone}|=={cancel}|oui)
-        <div class="reponse_formulaire_erreur">
-        <p><strong>PAYMENT CANCELLLED !</strong></p>
-        <p>Your subscription fee has not been paid. Please try again</p>
-    	</div>
-        ]
-        
-        [<!--login-ok-->
-		(#SESSION{id_auteur}|oui)
-		
-			<?php
-			$member = sql_fetsel('*','spip_members','id_auteur=#SESSION{id_auteur}','','','','');
-			
-			if (!$member) {
-			?>
-				<INCLURE{fond=include/notlogged}{ajax}{env}>
-			<?php
-			} else {
-			?>
-				
-        <h3>Member area</h3>
-        <h4>Latest Flash</h4>
-        <div class="box1">
-        <INCLURE{fond=include/latest_flash}>
+    <div class="contener">
+
+        <!-- ****************************** MENU ****************************** //-->
+        <INCLURE{fond=include/menu}{id_rubrique}>
+
+        <div id="main">
+
+            <!-- ****************************** YOU ARE HERE ****************************** //-->
+            <INCLURE{fond=include/path}{id_rubrique}>
+
+            <!-- ****************************** CONTENT ****************************** //-->
+            <div class="content" role="main">
+            
+                [<!--ogone-ok-->(#ENV{retour_ogone}|=={success}|oui)
+                <div class="reponse_formulaire_ok">
+                <p><strong>PAYMENT SUCCESSFUL !</strong></p>
+                <p>Your subscription fee is now up to date</p>
+             	</div>
+                ]
+                
+                [<!--ogone-decline-->(#ENV{retour_ogone}|=={decline}|oui)
+                <div class="reponse_formulaire_erreur">
+                <p><strong>PAYMENT DECLINED  !</strong></p>
+                <p>Your subscription fee has not been paid. Please try again</p>
+            	</div>
+                ]
+                [<!--ogone-cancel-->(#ENV{retour_ogone}|=={cancel}|oui)
+                <div class="reponse_formulaire_erreur">
+                <p><strong>PAYMENT CANCELLLED !</strong></p>
+                <p>Your subscription fee has not been paid. Please try again</p>
+            	</div>
+                ]
+            
+                [<!--login-ok-->
+        		(#SESSION{id_auteur}|oui)
+        			<?php
+                $member = sql_fetsel('*','spip_members','id_auteur=#SESSION{id_auteur}','','','','');
+        			if (!$member) {
+        			?>
+        				<INCLURE{fond=include/notlogged}{ajax}{env}{id_rubrique}>
+        			<?php
+        			} else {
+        			?>	
+                <h2>Member area</h2>
+                <h3>Latest Flash</h3>
+                <div class="box1">
+                <INCLURE{fond=include/latest_flash}>
+                </div>
+        			<?php
+        			}
+        			?>
+                ]
+
+                [(#SESSION{id_auteur}|non)
+                <INCLURE{fond=include/notlogged}{ajax}{env}{id_rubrique}>
+                ]
+        	</div>
         </div>
 
-			<?php
-			}
-			?>
+        <!-- ****************************** SIDE BANNERS ****************************** //-->
+        <INCLURE{fond=include/side-banners}>
 
-        ]
-        [(#SESSION{id_auteur}|non)
-        <INCLURE{fond=include/notlogged}{ajax}{env}>
-        ]
-	</div>
-    <div id="sidebar">
-    	<INCLURE{fond=include/sidebar,id_rubrique,id_secteur}>
+        <!-- ****************************** SIDE MENU ****************************** //-->
+        <INCLURE{fond=include/side-menu,id_rubrique,id_secteur}>
+
     </div>
+
+    <!-- ****************************** FOOTER ****************************** //-->
+    <INCLURE{fond=include/footer}>
+
 </div>
-
-<INCLURE{fond=include/footer}>
-
-</div>
-
+<script type="text/javascript" src="/[(#CHEMIN{js/javascript.js})]"></script>
+<script type="text/javascript" src="/[(#CHEMIN{js/css3-mediaqueries.js})]"></script>
 </body>
 </html>
 </B_testSiArticles>

@@ -1,0 +1,19 @@
+			<B_carousel>
+			<div class="carousel">
+				<div class="carouselcontent">
+					<BOUCLE_carousel(ARTICLES) {type_mot=Promobanners} {titre_mot=slideshow} {par date} {inverse} {0,5}>
+					<div aria-live="assertive">
+			            [(#LOGO_ARTICLE||image_reduire{350})]
+			            <h3>[(#TITRE|supprimer_numero)]</h3>
+			            <span>[(#SOUSTITRE)]</span>
+			            [(#CHAPO|sinon{#INTRODUCTION})]
+					</div>
+					</BOUCLE_carousel>
+				</div>
+				<ul>
+					<BOUCLE_carouselNr(ARTICLES) {type_mot=Promobanners} {titre_mot=slideshow} {par date} {inverse} {0,5}>
+					<li><a href="#">#COMPTEUR_BOUCLE</a></li>
+					</BOUCLE_carouselNr>
+				</ul>
+			</div>
+			</B_carousel>

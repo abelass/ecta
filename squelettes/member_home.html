@@ -1,36 +1,46 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<INCLURE{fond=include/head}{id_rubrique=4}>
+    <INCLURE{fond=include/head}{id_rubrique=4}>
 </head>
 <body>
-<div id="wrap">
+<div id="contener">
+    <!-- ****************************** HEADER ****************************** //-->
+    <INCLURE{fond=include/header}{id_rubrique=4}>
 
-<INCLURE{fond=include/header}{id_rubrique=4}>
+    <div class="contener">
 
-<div id="principal">
-	<div id="contenu">
-		[<!--login-ok-->
-		(#SESSION{id_auteur}|oui)
-        <h3>Member area</h3>
-        <h4>Latest Flash</h4>
-        <div class="box1">
-        <INCLURE{fond=include/latest_flash}>
+        <!-- ****************************** MENU ****************************** //-->
+        <INCLURE{fond=include/menu}{id_rubrique=4}>
+
+        <div id="main">
+
+            <!-- ****************************** CONTENT ****************************** //-->
+            <div class="content" role="main">
+        		[<!--login-ok-->
+        		(#SESSION{id_auteur}|oui)
+                <h1>Member area</h1>
+                <h2>Latest Flash</h2>
+                <div class="box1">
+                <INCLURE{fond=include/latest_flash}>
+                </div>
+                ]
+                [(#SESSION{id_auteur}|non)
+                <INCLURE{fond=include/notlogged}{ajax}{env}>
+                ]    
+        	</div>
         </div>
-        ]
-        [(#SESSION{id_auteur}|non)
-        <INCLURE{fond=include/notlogged}{ajax}{env}>
-        ]
-        
-	</div>
-    <div id="sidebar">
-    	<INCLURE{fond=include/sidebar}{id_rubrique=4}>
+
+        <!-- ****************************** SIDE MENU ****************************** //-->
+        <INCLURE{fond=include/side-menu}{id_rubrique=4}>
+
     </div>
+
+    <!-- ****************************** FOOTER ****************************** //-->
+    <INCLURE{fond=include/footer}>
+
 </div>
-
-<INCLURE{fond=include/footer}>
-
-</div>
-
+<script type="text/javascript" src="/[(#CHEMIN{js/javascript.js})]"></script>
+<script type="text/javascript" src="/[(#CHEMIN{js/css3-mediaqueries.js})]"></script>
 </body>
 </html>

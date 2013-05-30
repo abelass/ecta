@@ -1,0 +1,25 @@
+a:focus {
+	/*border: 3px solid red;*/
+	outline: red solid thick;
+	}
+a.more:focus {
+	outline: red solid thick;
+	}
+#header form input.text:focus {
+	outline: red solid thick;
+	}
+#header form input.submit:focus {
+	outline: red solid thick;
+	}
+	
+#main div.carousel ol li a:focus {
+	outline: red solid thick;
+	}
+	
+#main div.tabs ul li a:focus {
+	outline: red solid thick;
+	}
+
+#main div.association a:focus {
+	outline: red solid thick;
+	}

@@ -1,12 +1,12 @@
 	
 	<BOUCLE_gen1(RUBRIQUES){id_rubrique}{id_mot=2}>
 	<B_afficheDesc>
-    [<h3>(#TITRE|supprimer_numero)</h3>]
+    [<h2>(#TITRE|supprimer_numero)</h2>]
 	<!-- contenu court avec date -->
 	<BOUCLE_afficheDesc(ARTICLES){id_rubrique}{par date}{inverse}>
     	<div class="article_date" id="article#ID_ARTICLE">
-		<h4>[(#TITRE|supprimer_numero)]</h4>
-		[<h4>(#SOUSTITRE)</h4>]
+		<h2>[(#TITRE|supprimer_numero)]</h2>
+		[<h3>(#SOUSTITRE)</h3>]
 		[(#CHAPO||inserer_attribut{'class','chapeau'})]
 		[(#TEXTE|paragrapher)]
 		</div>
@@ -16,8 +16,8 @@
 		<!-- galerie photo -->
 		<BOUCLE_afficheGal(ARTICLES){id_rubrique}{par num titre}>
         	<div class="article_galerie" id="article#ID_ARTICLE">
-			<h3>[(#TITRE|supprimer_numero)]</h3>
-			[<h4>(#SOUSTITRE)</h4>]
+			<h2>[(#TITRE|supprimer_numero)]</h2>
+			[<h3>(#SOUSTITRE)</h3>]
 			[(#CHAPO||inserer_attribut{'class','chapeau'})]
 			[(#TEXTE|paragrapher)]
 			<B_ListeImages>
@@ -34,8 +34,8 @@
         	<div class="col2">
 			<BOUCLE_colonne2(ARTICLES){id_rubrique}{par num titre}{id_mot==5}{doublons}>
             <div class="article" id="article#ID_ARTICLE">
-			<h3>[(#TITRE|supprimer_numero)]</h3>
-			[<h4>(#SOUSTITRE)</h4>]
+			<h2>[(#TITRE|supprimer_numero)]</h2>
+			[<h3>(#SOUSTITRE)</h3>]
 			[(#CHAPO||inserer_attribut{'class','chapeau'})]
 			[(#TEXTE|paragrapher)]
             </div>
@@ -44,8 +44,8 @@
             
             <div class="col1">
             <BOUCLE_colonne1(ARTICLES){id_rubrique}{par num titre}{doublons}{"<hr />"}>
-                <h3>[(#TITRE|supprimer_numero)]</h3>
-                [<h4>(#SOUSTITRE)</h4>]
+                <h2>[(#TITRE|supprimer_numero)]</h2>
+                [<h3>(#SOUSTITRE)</h3>]
                 [(#CHAPO||inserer_attribut{'class','chapeau'})]
                 [(#TEXTE|paragrapher)]
             </BOUCLE_colonne1>
@@ -55,8 +55,8 @@
     <BOUCLE_docu(RUBRIQUES){id_rubrique}{id_mot=143}>
     	<BOUCLE_art(ARTICLES){id_rubrique}{par num titre}>
         	<div class="article" id="article#ID_ARTICLE">
-			<h3>[(#TITRE|supprimer_numero)]</h3>
-			[<h4>(#SOUSTITRE)</h4>]
+			<h2>[(#TITRE|supprimer_numero)]</h2>
+			[<h3>(#SOUSTITRE)</h3>]
 			[(#CHAPO||inserer_attribut{'class','chapeau'})]
 			[(#TEXTE|paragrapher)]
 			<B_Listedoc>
@@ -72,15 +72,15 @@
     <BOUCLE_sec(RUBRIQUES){id_rubrique}{id_mot=147}{doublons}>
     	<BOUCLE_art2(ARTICLES){id_rubrique}{par num titre}>
         	<div class="article" id="article#ID_ARTICLE">
-			<h3>[(#TITRE|supprimer_numero)]</h3>
-			[<h4>(#SOUSTITRE)</h4>]
+			<h2>[(#TITRE|supprimer_numero)]</h2>
+			[<h3>(#SOUSTITRE)</h3>]
 			[(#CHAPO||inserer_attribut{'class','chapeau'})]
 			[(#TEXTE|paragrapher)]
             </div> 
         </BOUCLE_art2>
         <BOUCLE_sec2(RUBRIQUES){id_rubrique=2}><BOUCLE_parent(RUBRIQUES){id_parent}{par num titre}{doublons}>
         <div class="col3 box1 committees [(#COMPTEUR_BOUCLE|alterner{'', 'last'})]">
-        <h3>[(#TITRE|supprimer_numero)]</h3>
+        <h2>[(#TITRE|supprimer_numero)]</h2>
         <div>
         <B_secContent><ul><BOUCLE_secContent(RUBRIQUES){id_parent}{par num titre}><li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li></BOUCLE_secContent></ul></B_secContent>
         </div>
@@ -92,8 +92,8 @@
 
 	<BOUCLE_afficheArt(ARTICLES){id_rubrique}{par num titre}>
         	<div class="article" id="article#ID_ARTICLE">
-			<h3>[(#TITRE|supprimer_numero)]</h3>
-			[<h4>(#SOUSTITRE)</h4>]
+			<h2>[(#TITRE|supprimer_numero)]</h2>
+			[<h3>(#SOUSTITRE)</h3>]
 			[(#CHAPO||inserer_attribut{'class','chapeau'})]
 			[(#TEXTE|paragrapher)]
             </div>

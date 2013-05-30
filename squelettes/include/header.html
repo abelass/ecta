@@ -1,6 +1,16 @@
-<div id="header">
-	<h1><a href="#URL_SITE_SPIP" title="<:retour:>">#NOM_SITE_SPIP</a></h1>
-	[<h2>(#DESCRIPTIF_SITE_SPIP|textebrut)</h2>]
-    <INCLURE{fond=include/tools}{id_rubrique}>
-    <INCLURE{fond=include/menu}{id_rubrique}>
-</div>
+			<div id="header">
+				<div class="contener">
+					<BOUCLE_groups(RUBRIQUES){id_rubrique=436}>
+					[<a href="#URL_RUBRIQUE" class="profile">(#TITRE|supprimer_numero)</a>]
+					</BOUCLE_groups>
+					<?php if ( $GLOBALS['auteur_session']) { ?>
+					<a href="?action=logout&logout=public&amp;url=[(#SELF|urlencode)]" class="logout">logout</a>
+					<?php } else { ?>
+					<a href="?page=member_login&amp;return=#SELF" class="login">login</a>
+					<?php } ?>
+					<a href="http://www.linkedin.com/groups?home=&gid=1845138&trk=anet_ug_hm" class="linkedin">linkedin</a>
+					<a href="https://twitter.com/ECTABrussels" class="twitter">twitter</a>
+   					#FORMULAIRE_RECHERCHE
+				</div>
+				<div class="logo"><a href="#URL_SITE_SPIP" class="logo">#NOM_SITE_SPIP</a></div>
+			</div>

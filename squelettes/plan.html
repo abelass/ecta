@@ -1,51 +1,63 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+<html>
 <head>
-<INCLURE{fond=include/head}>
+    <INCLURE{fond=include/head}{id_rubrique}>
 </head>
 <body>
+<div id="contener">
+    <!-- ****************************** HEADER ****************************** //-->
+    <INCLURE{fond=include/header}{id_rubrique}>
 
-<div id="wrap">
+    <div class="contener">
 
-<INCLURE{fond=include/header}>
+        <!-- ****************************** MENU ****************************** //-->
+        <INCLURE{fond=include/menu}{id_rubrique}>
 
-<div id="principal">
-	<div id="contenu" >
-		<div id="chemin"><:vous_etes_ici:> : <a href="#"><:plan:></a></div>
-		<h3><:plan:></h3>
-		<!-- Plan du site -->
-		<BOUCLE_secteurs(RUBRIQUES) {racine} {par titre}>
-			<h4><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h4>
-			<!-- Articles et sous-rubriques -->
-			<B_articles_racine>
-			<ul>
-				<BOUCLE_articles_racine(ARTICLES) {id_rubrique} {par titre}>
-				<li><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></li>
-				</BOUCLE_articles_racine>
-			</ul>
-			</B_articles_racine>
+        <div id="main">
 
-			<B_rubriques>
-				<ul>
-					<BOUCLE_rubriques(RUBRIQUES) {id_parent} {par titre}{id_rubrique!=47}>
+            <!-- ****************************** CONTENT ****************************** //-->
+            <div class="content" role="main">
 
-					<li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>
-						<BOUCLE_sous_rubriques(BOUCLE_rubriques)></BOUCLE_sous_rubriques>
-					</li>
-					</BOUCLE_rubriques>
-				</ul>
-</B_rubriques>
-		<hr />
-		</BOUCLE_secteurs>
+				<h1><:plan:></h1>
+				<!-- Plan du site -->
+				<BOUCLE_secteurs(RUBRIQUES) {racine} {par titre}>
+					<h4><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h4>
+					<!-- Articles et sous-rubriques -->
+					<B_articles_racine>
+					<ul>
+						<BOUCLE_articles_racine(ARTICLES) {id_rubrique} {par titre}>
+						<li><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></li>
+						</BOUCLE_articles_racine>
+					</ul>
+					</B_articles_racine>
 
-	</div>
-    <div id="sidebar">
-    	<INCLURE{fond=include/sidebar}{id_rubrique}>
+					<B_rubriques>
+						<ul>
+							<BOUCLE_rubriques(RUBRIQUES) {id_parent} {par titre}{id_rubrique!=47}>
+
+							<li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>
+								<BOUCLE_sous_rubriques(BOUCLE_rubriques)></BOUCLE_sous_rubriques>
+							</li>
+							</BOUCLE_rubriques>
+						</ul>
+					</B_rubriques>
+					<hr />
+				</BOUCLE_secteurs>
+
+		    </div>
+	    </div>
+
+        <!-- ****************************** SIDE MENU ****************************** //-->
+      	<INCLURE{fond=include/side-menu}{id_rubrique}>
+
     </div>
-</div>
-<INCLURE{fond=include/footer}>
+
+    <!-- ****************************** FOOTER ****************************** //-->
+    <INCLURE{fond=include/footer}>
 
 </div>
-
+<script type="text/javascript" src="/[(#CHEMIN{js/javascript.js})]"></script>
+<script type="text/javascript" src="/[(#CHEMIN{js/css3-mediaqueries.js})]"></script>
 </body>
 </html>

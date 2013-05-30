@@ -1,0 +1,16 @@
+		<div id="side-events">
+			<h2>OTHER EVENTS</h2>
+			<ul>
+				<BOUCLE_events_slideshow(ARTICLES){id_rubrique=135}{titre_mot=slideshow}{doublons}> </BOUCLE_events_slideshow>
+				<BOUCLE_events(ARTICLES){id_rubrique=135}{doublons}{par num titre}>
+				<li>
+		            [<h3><strong>(#TITRE|supprimer_numero)</strong></h3>]
+		           	<div>
+		            [(#TEXTE)]
+		            [<div class="thumb">(#LOGO_ARTICLE||image_reduire{288})</div>]
+		            </div>
+		           	<a href="#URL_RUBRIQUE" class="more"><span>More</span></a>
+		        </li>
+		        </BOUCLE_events>
+			</ul>
+		</div>
