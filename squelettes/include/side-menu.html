@@ -1,5 +1,3 @@
-#CACHE{3600}
-
 <BOUCLE_ancetres(RUBRIQUES){id_parent=#ID_SECTEUR}><BOUCLE_test(CONDITION){si #EXPOSE}>
 			<B_oncles>
 			<div id="side-menu">
@@ -45,7 +43,7 @@ if ($member) {
 			<div id="side-memberinfo">
 				<div class="box1" id="member_profile_mini">
 					<h3>My information</h3>
-					[(#INCLURE{fond=include/member_info,env,ajax})]
+					[(#INCLURE{fond=include/member_info}{env})]
 				</div>
 
 				<div class="box1" id="member_messages">

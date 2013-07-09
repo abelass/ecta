@@ -1,0 +1,10 @@
+In rubrique.html
+
+<INCLURE{fond=include/side-menu,id_rubrique,id_secteur}>
+
+changed to:
+
+<INCLURE{fond=include/side-menu}{id_rubrique}>
+
+- - - - - - - 
+
