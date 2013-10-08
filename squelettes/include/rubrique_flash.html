@@ -109,7 +109,7 @@
 <br style="clear:both;"/>
 <B_flash>
 <h4>Results</h4>
-<BOUCLE_flash(ARTICLES){id_rubrique}{annee ?}{id_mot IN #ENV{id_mot,#GET{id_mot}}} {id_mot IN #ENV{id_mot_criteria,#GET{id_mot}}} {!par date}>
+<BOUCLE_flash(ARTICLES){id_rubrique}{annee ?}{id_mot ?IN #ENV{id_mot,#GET{id_mot}}} {id_mot ?IN #ENV{id_mot_criteria,#GET{id_mot}}} {!par date}>
 	<div class="flash [(#COMPTEUR_BOUCLE|alterner{row_odd,'row_even'})]">
 		<div class="flash-desc">
 		<BOUCLE_doc(DOCUMENTS){id_article=#ID_ARTICLE}{extension=pdf}{0,1}>
